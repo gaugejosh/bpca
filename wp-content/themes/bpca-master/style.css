@@ -5131,6 +5131,7 @@ next.page-numbers:hover {
 
 .grid-map {
     float: left;
+    width: 33.333333333%;
 }
 
 .grid-map a { display: inline-block; }
