@@ -72,7 +72,14 @@ get_header(); ?>
 									<div class="grid-description-images">
 										<ul>
 											<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-											<li class="grid-thumbnail places"><img src="<?php echo $url ?>"></li>
+											<li class="grid-thumbnail places">
+												<div class="show-mobile-tablet">
+													<img src="<?php the_field('places_mobile_img') ?>">
+												</div>
+												<div class="show-desktop">
+													<img src="<?php echo $url ?>">
+												</div>
+											</li>
 											<li class="grid-map places">
 												<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
 													<img src="<?php the_field('place_gmap') ?>">
@@ -221,7 +228,14 @@ get_header(); ?>
 									<div class="grid-description-images">
 										<ul>
 											<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-											<li class="grid-thumbnail places"><img src="<?php echo $url ?>"></li>
+											<li class="grid-thumbnail places">
+												<div class="show-mobile-tablet">
+													<img src="<?php the_field('places_mobile_img') ?>">
+												</div>
+												<div class="show-desktop">
+													<img src="<?php echo $url ?>">
+												</div>
+											</li>
 											<li class="grid-map places">
 												<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
 													<img src="<?php the_field('place_gmap') ?>">
@@ -376,7 +390,14 @@ get_header(); ?>
 									<div class="grid-description-images">
 										<ul>
 											<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-											<li class="grid-thumbnail places"><img src="<?php echo $url ?>"></li>
+											<li class="grid-thumbnail places">
+												<div class="show-mobile-tablet">
+													<img src="<?php the_field('places_mobile_img') ?>">
+												</div>
+												<div class="show-desktop">
+													<img src="<?php echo $url ?>">
+												</div>
+											</li>
 											<li class="grid-map places">
 												<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
 													<img src="<?php the_field('place_gmap') ?>">

@@ -5147,6 +5147,8 @@ next.page-numbers:hover {
     width: 66.666666667%;
 }
 
+.show-mobile-tablet { display: none; }
+
 /* PSEUDO-ELEMENTS */
 .grids:before,
 .grids:after {
@@ -5252,6 +5254,17 @@ next.page-numbers:hover {
         padding: 20px;
     }
 
+    .grid-thumbnail.places,
+    .grid-map.places {
+        width: 50%;
+    }
+
+    .show-desktop {
+        display: none;
+    }
+
+    .show-mobile-tablet { display: block; }
+
     .grid-alt .left-col.places,
 
     .grid-alt .right-col.places { width: 100%; }
@@ -5278,6 +5291,12 @@ next.page-numbers:hover {
 
     .mobile-grid {
         display: block;
+    }
+
+    .grid-thumbnail.places,
+    .grid-map.places {
+        float: none;
+        width: 100%;
     }
 }
 
