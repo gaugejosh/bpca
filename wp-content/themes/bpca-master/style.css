@@ -3419,7 +3419,7 @@ display:none;
     height: 32px;
     text-align: center;
     line-height: 32px;
-    margin-top: 38px;
+    margin: 0;
 }
 
 .descr-text-box-container.events-page {
@@ -3612,6 +3612,13 @@ display:none;
 
 .foil-descr {
     width: 63%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    clear: both;
+    content: '';
+    display: table;
 }
 
 /* Board Page */

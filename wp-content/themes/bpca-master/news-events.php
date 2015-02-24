@@ -292,14 +292,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 				// create a new unordered list if this is a new row
 				if ($curcolcount == 1)
 				{
-					echo '<div id="tab-container' . $currowcount . '">';
-					echo '<ul id="box-row-' . $curcolcount . '">';
+					echo '<div id="tab-container' . $currowcount . '" class="news-events">';
+					echo '<ul id="box-row-' . $curcolcount . '" class="grids">';
 				}
-				echo '<li class="header-box" id="name-box-' . $curevent->ID . '">';
-				echo '  <div class="event-box-date-area">';
-				echo '  <div class="blog-date-format events">';
+				echo '<li id="name-box-' . $curevent->ID . '" class="grid">';
+				echo '<div class="event-box-date-area">';
+				echo '<div class="blog-date-format events">';
 				echo date('n/j', strtotime($curevent->EventStartDate));
-				echo '  </div>';
+				echo '</div>';
 				$categories = tribe_get_event_cat_slugs($curevent->ID);
 				if ($categories)
 				{
@@ -351,7 +351,7 @@ if (array_key_exists('filter-by-cat', $_POST))
 				echo tribe_get_start_time($curevent->ID) . ' - ' . tribe_get_end_time($curevent->ID);
 				echo '      </div>'; // name-box-sub-head
 				echo '  </div>'; // name-box-text-block
-				echo '  <a href="#descr-area-box-' . $curevent->ID . '">';
+				echo '  <a href="#descr-area-box-' . $curevent->ID . '" class="clearfix">';
 				echo '      <p class="event-box-text"><span>Replacing</span></p>';
 				echo '  </a>';
 				echo '</li>'; // name-box
