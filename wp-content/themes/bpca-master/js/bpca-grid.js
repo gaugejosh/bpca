@@ -33,7 +33,9 @@ $(document).ready(function () {
             $grid.removeClass('active');
 
             // hide any open descriptions
-            $('.grid-alt').slideUp();
+            $('.grid-alt').slideUp('slow', function() {
+                $target.html($content);
+            });
 
             // add the active class to the current element
             $(this).addClass('active');
@@ -43,7 +45,7 @@ $(document).ready(function () {
             $grid.next().css('border-bottom', '#19a6e2');
 
             // show current element description
-            $target.html($content).slideDown('slow');
+            $target.slideDown('slow');
         }
     });
 
