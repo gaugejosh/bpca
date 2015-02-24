@@ -4,22 +4,25 @@
           <table class="taxonomytable">
 		  <thead>
 		  <tr>
-		    <th scope="col" style="text-align:center">
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
 			[+Support+]
 			</th>
-		    <th scope="col" style="text-align:center">
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
 			[+Inline Edit+]
 			</th>
-		    <th scope="col" style="text-align:center">
-			[+Checklist+]
-			</th>
-		    <th scope="col" style="text-align:center">
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
 			[+Term Search+]
 			</th>
-		    <th scope="col" style="text-align:center">
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
+			[+Checklist+]
+			</th>
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
+			[+Checked On Top+]
+			</th>
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:center; border-right: 1px solid">
 			[+List Filter+]
 			</th>
-		    <th scope="col" style="text-align:left">
+		    <th scope="col" style="padding: 0px 5px 0px 5px; text-align:left">
 			[+Taxonomy+]
 			</th>
 			</tr>
@@ -40,10 +43,13 @@
             <input type="checkbox" name="tax_quick_edit[[+key+]]" id="tax_quick_edit_[+key+]" [+quick_edit_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
+            <input type="checkbox" name="tax_term_search[[+key+]]" id="tax_term_search_[+key+]" [+term_search_checked+] value="checked" />
+        </td>
+		<td style="text-align:center;">
             <input type="checkbox" name="tax_flat_checklist[[+key+]]" id="tax_flat_checklist_[+key+]" [+flat_checklist_checked+] [+flat_checklist_disabled+] value="[+flat_checklist_value+]" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="tax_term_search[[+key+]]" id="tax_term_search[+key+]" [+term_search_checked+] value="checked" />
+            <input type="checkbox" name="tax_checked_on_top[[+key+]]" id="tax_checked_on_top_[+key+]" [+checked_on_top_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
             <input type="radio" name="tax_filter" id="tax_filter_[+key+]" [+filter_checked+] value="[+key+]" />
@@ -126,38 +132,40 @@
 		[+No Mapping Rules+]
         </td>
 		</tr>
+
 <!-- template="custom-field-rule-row" -->
         <tr valign="top">
 		<td style="text-align:left; vertical-align:middle">
             [+name+]&nbsp;
-			<input type="hidden" name="custom_field_mapping[[+key+]][name]" id="custom_field_name_[+key+]" value="[+name+]" />
+			<input type="hidden" name="custom_field_mapping[[+index+]][name]" id="custom_field_name_[+index+]" value="[+name_attr+]" />
+			<input type="hidden" name="custom_field_mapping[[+index+]][key]" id="custom_field_name_[+index+]" value="[+key+]" />
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][data_source]" id="custom_field_data_source_[+key+]">
+            <select name="custom_field_mapping[[+index+]][data_source]" id="custom_field_data_source_[+index+]">
 [+data_source_options+]
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][keep_existing]" id="custom_field_keep_existing_[+key+]">
+            <select name="custom_field_mapping[[+index+]][keep_existing]" id="custom_field_keep_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][format]" id="custom_field_format_[+key+]">
+            <select name="custom_field_mapping[[+index+]][format]" id="custom_field_format_[+index+]">
                 <option [+native_format+] value="native">[+Native+]</option>
                 <option [+commas_format+] value="commas">[+Commas+]</option>
                 <option [+raw_format+] value="raw">[+Raw+]</option>
             </select>
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][mla_column]" id="custom_field_mla_column_[+key+]" [+mla_column_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][mla_column]" id="custom_field_mla_column_[+index+]" [+mla_column_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][quick_edit]" id="custom_field_quick_edit_[+key+]" [+quick_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][quick_edit]" id="custom_field_quick_edit_[+index+]" [+quick_edit_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][bulk_edit]" id="custom_field_bulk_edit_[+key+]" [+bulk_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][bulk_edit]" id="custom_field_bulk_edit_[+index+]" [+bulk_edit_checked+] value="checked" />
         </td>
 		</tr>
         <tr valign="top">
@@ -165,11 +173,11 @@
 			
         </td>
 		<td style="text-align:left;">
-            <input name="custom_field_mapping[[+key+]][meta_name]" id="custom_field_meta_name_[+key+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
+            <input name="custom_field_mapping[[+index+]][meta_name]" id="custom_field_meta_name_[+index+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
         </td>
 		<td colspan="[+column_count_meta+]" style="text-align:left; vertical-align:middle;">
 			<strong>[+Option+]:</strong>&nbsp;
-            <select name="custom_field_mapping[[+key+]][option]" id="custom_field_option_[+key+]">
+            <select name="custom_field_mapping[[+index+]][option]" id="custom_field_option_[+index+]">
                 <option [+text_option+] value="text">[+Text+]</option>
                 <option [+single_option+] value="single">[+Single+]</option>
                 <option [+export_option+] value="export">[+Export+]</option>
@@ -177,15 +185,15 @@
                 <option [+multi_option+] value="multi">[+Multi+]</option>
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="custom_field_mapping[[+key+]][no_null]" id="custom_field_no_null_[+key+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
+            <input type="checkbox" name="custom_field_mapping[[+index+]][no_null]" id="custom_field_no_null_[+index+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
         </td>
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]" style="padding-bottom: 10px">
-	        <input name="custom_field_mapping[[+key+]][action][delete_rule]" class="button-primary" id="custom-field-mapping-delete-rule-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Rule+]" />
-	        <input name="custom_field_mapping[[+key+]][action][delete_field]" class="button-primary" id="custom-field-mapping-delete-field-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Field+]" />
-	        <input name="custom_field_mapping[[+key+]][action][update_rule]" class="button-primary" id="custom-field-mapping-update-rule-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Update Rule+]" />
-	        <input name="custom_field_mapping[[+key+]][action][map_now]" class="button-secondary mla-mapping" id="custom-field-mapping-map-now-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Map All Attachments+]" />
+	        <input name="custom_field_mapping[[+index+]][action][delete_rule]" class="button-primary" id="custom-field-mapping-delete-rule-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Rule+]" />
+	        <input name="custom_field_mapping[[+index+]][action][delete_field]" class="button-primary" id="custom-field-mapping-delete-field-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Field+]" />
+	        <input name="custom_field_mapping[[+index+]][action][update_rule]" class="button-primary" id="custom-field-mapping-update-rule-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Update Rule+]" />
+	        <input name="custom_field_mapping[[+index+]][action][map_now]" class="button-secondary mla-mapping" id="custom-field-mapping-map-now-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 
@@ -197,36 +205,36 @@
 		</tr>
         <tr valign="top">
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][name]" id="custom_field_name_[+key+]">
+            <select name="custom_field_mapping[[+index+]][name]" id="custom_field_name_[+index+]">
 [+field_name_options+]
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][data_source]" id="custom_field_data_source_[+key+]">
+            <select name="custom_field_mapping[[+index+]][data_source]" id="custom_field_data_source_[+index+]">
 [+data_source_options+]
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][keep_existing]" id="custom_field_keep_existing_[+key+]">
+            <select name="custom_field_mapping[[+index+]][keep_existing]" id="custom_field_keep_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][format]" id="custom_field_format_[+key+]">
+            <select name="custom_field_mapping[[+index+]][format]" id="custom_field_format_[+index+]">
                 <option [+native_format+] value="native">[+Native+]</option>
                 <option [+commas_format+] value="commas">[+Commas+]</option>
                 <option [+raw_format+] value="raw">[+Raw+]</option>
             </select>
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][mla_column]" id="custom_field_mla_column_[+key+]" [+mla_column_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][mla_column]" id="custom_field_mla_column_[+index+]" [+mla_column_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][quick_edit]" id="custom_field_quick_edit_[+key+]" [+quick_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][quick_edit]" id="custom_field_quick_edit_[+index+]" [+quick_edit_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][bulk_edit]" id="custom_field_bulk_edit_[+key+]" [+bulk_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][bulk_edit]" id="custom_field_bulk_edit_[+index+]" [+bulk_edit_checked+] value="checked" />
         </td>
 		</tr>
         <tr valign="top">
@@ -234,11 +242,11 @@
 			
         </td>
 		<td style="text-align:left;">
-            <input name="custom_field_mapping[[+key+]][meta_name]" id="custom_field_meta_name_[+key+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
+            <input name="custom_field_mapping[[+index+]][meta_name]" id="custom_field_meta_name_[+index+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
         </td>
 		<td colspan="[+column_count_meta+]" style="text-align:left; vertical-align:middle;">
 			<strong>[+Option+]:</strong>&nbsp;
-            <select name="custom_field_mapping[[+key+]][option]" id="custom_field_option_[+key+]">
+            <select name="custom_field_mapping[[+index+]][option]" id="custom_field_option_[+index+]">
                 <option [+text_option+] value="text">[+Text+]</option>
                 <option [+single_option+] value="single">[+Single+]</option>
                 <option [+export_option+] value="export">[+Export+]</option>
@@ -246,13 +254,13 @@
                 <option [+multi_option+] value="multi">[+Multi+]</option>
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="custom_field_mapping[[+key+]][no_null]" id="custom_field_no_null_[+key+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
+            <input type="checkbox" name="custom_field_mapping[[+index+]][no_null]" id="custom_field_no_null_[+index+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
         </td>
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]">
-	        <input name="custom_field_mapping[[+key+]][action][add_rule]" class="button-primary" id="custom-field-mapping-add-rule-[+key+]" type="submit" value="[+Add Rule+]" />
-	        <input name="custom_field_mapping[[+key+]][action][add_rule_map]" class="button-secondary mla-mapping" id="custom-field-mapping-add-rule-map-[+key+]" type="submit" value="[+Map All Attachments+]" />
+	        <input name="custom_field_mapping[[+index+]][action][add_rule]" class="button-primary" id="custom-field-mapping-add-rule-[+index+]" type="submit" value="[+Add Rule+]" />
+	        <input name="custom_field_mapping[[+index+]][action][add_rule_map]" class="button-secondary mla-mapping" id="custom-field-mapping-add-rule-map-[+index+]" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 
@@ -264,34 +272,34 @@
 		</tr>
         <tr valign="top">
 		<td style="text-align:left;">
-            <input name="custom_field_mapping[[+key+]][name]" id="custom_field_name_[+key+]" type="text" size="[+field_name_size+]" value="" />
+            <input name="custom_field_mapping[[+index+]][name]" id="custom_field_name_[+index+]" type="text" size="[+field_name_size+]" value="" />
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][data_source]" id="custom_field_data_source_[+key+]">
+            <select name="custom_field_mapping[[+index+]][data_source]" id="custom_field_data_source_[+index+]">
 [+data_source_options+]
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][keep_existing]" id="custom_field_keep_existing_[+key+]">
+            <select name="custom_field_mapping[[+index+]][keep_existing]" id="custom_field_keep_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="custom_field_mapping[[+key+]][format]" id="custom_field_format_[+key+]">
+            <select name="custom_field_mapping[[+index+]][format]" id="custom_field_format_[+index+]">
                 <option [+native_format+] value="native">[+Native+]</option>
                 <option [+commas_format+] value="commas">[+Commas+]</option>
                 <option [+raw_format+] value="raw">[+Raw+]</option>
             </select>
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][mla_column]" id="custom_field_mla_column_[+key+]" [+mla_column_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][mla_column]" id="custom_field_mla_column_[+index+]" [+mla_column_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][quick_edit]" id="custom_field_quick_edit_[+key+]" [+quick_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][quick_edit]" id="custom_field_quick_edit_[+index+]" [+quick_edit_checked+] value="checked" />
         </td>
 		<td style="text-align:center;">
-            <input type="checkbox" name="custom_field_mapping[[+key+]][bulk_edit]" id="custom_field_bulk_edit_[+key+]" [+bulk_edit_checked+] value="checked" />
+            <input type="checkbox" name="custom_field_mapping[[+index+]][bulk_edit]" id="custom_field_bulk_edit_[+index+]" [+bulk_edit_checked+] value="checked" />
         </td>
 		</tr>
         <tr valign="top">
@@ -299,11 +307,11 @@
 			
         </td>
 		<td style="text-align:left;">
-            <input name="custom_field_mapping[[+key+]][meta_name]" id="custom_field_meta_name_[+key+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
+            <input name="custom_field_mapping[[+index+]][meta_name]" id="custom_field_meta_name_[+index+]" type="text" size="[+meta_name_size+]" value="[+meta_name+]" />
         </td>
 		<td colspan="[+column_count_meta+]" style="text-align:left; vertical-align:middle;">
 			<strong>[+Option+]:</strong>&nbsp;
-            <select name="custom_field_mapping[[+key+]][option]" id="custom_field_option_[+key+]">
+            <select name="custom_field_mapping[[+index+]][option]" id="custom_field_option_[+index+]">
                 <option [+text_option+] value="text">[+Text+]</option>
                 <option [+single_option+] value="single">[+Single+]</option>
                 <option [+export_option+] value="export">[+Export+]</option>
@@ -311,13 +319,13 @@
                 <option [+multi_option+] value="multi">[+Multi+]</option>
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="custom_field_mapping[[+key+]][no_null]" id="custom_field_no_null_[+key+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
+            <input type="checkbox" name="custom_field_mapping[[+index+]][no_null]" id="custom_field_no_null_[+index+]" [+no_null_checked+] value="1" /> <strong>[+Delete NULL values+]</strong>
         </td>
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]">
-	        <input name="custom_field_mapping[[+key+]][action][add_field]" class="button-primary" id="custom-field-mapping-add-field-[+key+]" type="submit" value="[+Add Field+]" />
-	        <input name="custom_field_mapping[[+key+]][action][add_field_map]" class="button-secondary mla-mapping" id="custom-field-mapping-add-field-map-[+key+]" type="submit" value="[+Map All Attachments+]" />
+	        <input name="custom_field_mapping[[+index+]][action][add_field]" class="button-primary" id="custom-field-mapping-add-field-[+index+]" type="submit" value="[+Add Field+]" />
+	        <input name="custom_field_mapping[[+index+]][action][add_field_map]" class="button-secondary mla-mapping" id="custom-field-mapping-add-field-map-[+index+]" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 
@@ -498,24 +506,25 @@
         <tr valign="top">
 		<td style="text-align:left; vertical-align:middle">
             [+name+]&nbsp;
-			<input type="hidden" name="iptc_exif_mapping[custom][[+key+]][name]" id="iptc_exif_custom_name_[+key+]" value="[+name+]" />
+			<input name="iptc_exif_mapping[custom][[+index+]][name]" id="iptc_exif_custom_name_[+index+]" type="hidden" value="[+name_attr+]" />
+			<input name="iptc_exif_mapping[custom][[+index+]][key]" id="iptc_exif_custom_key_[+index+]" type="hidden" value="[+key+]" />
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+index+]">
 [+iptc_field_options+]
             </select>
         </td>
 		<td style="text-align:center;">
-            <input name="iptc_exif_mapping[custom][[+key+]][exif_value]" id="iptc_exif_custom_exif_field_[+key+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
+            <input name="iptc_exif_mapping[custom][[+index+]][exif_value]" id="iptc_exif_custom_exif_field_[+index+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_first]" id="iptc_exif_custom_priority_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_first]" id="iptc_exif_custom_priority_[+index+]">
                 <option [+iptc_selected+] value="1">[+IPTC+]</option>
                 <option [+exif_selected+] value="">[+EXIF+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][keep_existing]" id="iptc_exif_custom_existing_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][keep_existing]" id="iptc_exif_custom_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
@@ -523,10 +532,10 @@
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]" style="padding-bottom: 10px">
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][delete_rule]" class="button-primary" id="iptc-exif-mapping-delete-rule-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Rule+]" />
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][delete_field]" class="button-primary" id="iptc-exif-mapping-delete-field-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Field+]" />
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][update_rule]" class="button-primary" id="iptc-exif-mapping-update-rule-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Update Rule+]" />
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][map_now]" class="button-secondary mla-mapping" id="iptc-exif-mapping-map-now-[+key+]" style="height: 18px; line-height: 16px" type="submit" value="[+Map All Attachments+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][delete_rule]" class="button-primary" id="iptc-exif-mapping-delete-rule-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Rule+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][delete_field]" class="button-primary" id="iptc-exif-mapping-delete-field-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Delete Field+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][update_rule]" class="button-primary" id="iptc-exif-mapping-update-rule-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Update Rule+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][map_now]" class="button-secondary mla-mapping" id="iptc-exif-mapping-map-now-[+index+]" style="height: 18px; line-height: 16px" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 
@@ -538,26 +547,26 @@
 		</tr>
         <tr valign="top">
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][name]" id="iptc_exif_custom_name_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][name]" id="iptc_exif_custom_name_[+index+]">
 [+field_name_options+]
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+index+]">
 [+iptc_field_options+]
             </select>
         </td>
 		<td style="text-align:center;">
-            <input name="iptc_exif_mapping[custom][[+key+]][exif_value]" id="iptc_exif_custom_exif_field_[+key+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
+            <input name="iptc_exif_mapping[custom][[+index+]][exif_value]" id="iptc_exif_custom_exif_field_[+index+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_first]" id="iptc_exif_custom_priority_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_first]" id="iptc_exif_custom_priority_[+index+]">
                 <option [+iptc_selected+] value="1">[+IPTC+]</option>
                 <option [+exif_selected+] value="">[+EXIF+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][keep_existing]" id="iptc_exif_custom_existing_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][keep_existing]" id="iptc_exif_custom_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
@@ -565,8 +574,8 @@
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]">
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][add_rule]" class="button-primary" id="iptc-exif-mapping-add-rule-[+key+]" type="submit" value="[+Add Rule+]" />
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][add_rule_map]" class="button-secondary mla-mapping" id="iptc-exif-mapping-add-rule-map-[+key+]" type="submit" value="[+Map All Attachments+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][add_rule]" class="button-primary" id="iptc-exif-mapping-add-rule-[+index+]" type="submit" value="[+Add Rule+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][add_rule_map]" class="button-secondary mla-mapping" id="iptc-exif-mapping-add-rule-map-[+index+]" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 
@@ -578,24 +587,24 @@
 		</tr>
         <tr valign="top">
 		<td style="text-align:left;">
-            <input name="iptc_exif_mapping[custom][[+key+]][name]" id="iptc_exif_custom_name_[+key+]" type="text" size="[+field_name_size+]" value="" />
+            <input name="iptc_exif_mapping[custom][[+index+]][name]" id="iptc_exif_custom_name_[+index+]" type="text" size="[+field_name_size+]" value="" />
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_value]" id="iptc_exif_custom_iptc_field_[+index+]">
 [+iptc_field_options+]
             </select>
         </td>
 		<td style="text-align:center;">
-            <input name="iptc_exif_mapping[custom][[+key+]][exif_value]" id="iptc_exif_custom_exif_field_[+key+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
+            <input name="iptc_exif_mapping[custom][[+index+]][exif_value]" id="iptc_exif_custom_exif_field_[+index+]" type="text" size="[+exif_size+]" value="[+exif_text+]" />
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][iptc_first]" id="iptc_exif_custom_priority_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][iptc_first]" id="iptc_exif_custom_priority_[+index+]">
                 <option [+iptc_selected+] value="1">[+IPTC+]</option>
                 <option [+exif_selected+] value="">[+EXIF+]</option>
             </select>
         </td>
 		<td style="text-align:left;">
-            <select name="iptc_exif_mapping[custom][[+key+]][keep_existing]" id="iptc_exif_custom_existing_[+key+]">
+            <select name="iptc_exif_mapping[custom][[+index+]][keep_existing]" id="iptc_exif_custom_existing_[+index+]">
                 <option [+keep_selected+] value="1">[+Keep+]</option>
                 <option [+replace_selected+] value="">[+Replace+]</option>
             </select>
@@ -603,8 +612,8 @@
 		</tr>
         <tr valign="top">
 		<td colspan="[+column_count+]">
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][add_field]" class="button-primary" id="iptc-exif-mapping-add-field-[+key+]" type="submit" value="[+Add Field+]" />
-	        <input name="iptc_exif_mapping[custom][[+key+]][action][add_field_map]" class="button-secondary mla-mapping" id="iptc-exif-mapping-add-field-map-[+key+]" type="submit" value="[+Map All Attachments+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][add_field]" class="button-primary" id="iptc-exif-mapping-add-field-[+index+]" type="submit" value="[+Add Field+]" />
+	        <input name="iptc_exif_mapping[custom][[+index+]][action][add_field_map]" class="button-secondary mla-mapping" id="iptc-exif-mapping-add-field-map-[+index+]" type="submit" value="[+Map All Attachments+]" />
         </td>
 		</tr>
 

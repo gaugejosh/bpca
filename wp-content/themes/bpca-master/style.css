@@ -5013,7 +5013,7 @@ next.page-numbers:hover {
     vertical-align: middle;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .grids img {
         height: auto;
         max-width: 100%;
@@ -5031,11 +5031,11 @@ next.page-numbers:hover {
 .grid {
     border-right:  1px solid #ebedee;
     border-bottom: 1px solid #ebedee;
-    height:        350px;
     position:      relative;
 }
 
-@media screen and (min-width: 600px) {
+
+@media screen and (min-width: 415px) {
     .grid {
         border-right: 1px solid #ebedee;
         float:        left;
@@ -5055,7 +5055,13 @@ next.page-numbers:hover {
     display:          none;
     float:            left;
     padding:          20px;
+    position:         relative;
     width:            100%;
+    z-index:          9999;
+}
+
+.grid-alt p:last-of-type {
+    margin-bottom: 0;
 }
 
 .grid-alt.places {
@@ -5069,10 +5075,15 @@ next.page-numbers:hover {
     margin-bottom: 20px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 415px) {
+    .grid-alt {
+        padding: 40px;
+    }
+
     .grid-alt .left-col,
     .grid-alt .right-col {
         float: left;
+        margin-bottom: 0;
         width: 47.5%;
     }
 
@@ -5085,7 +5096,7 @@ next.page-numbers:hover {
 
 .grid-alt .left-col ul {
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .grid-alt .left-col.places { margin-right: 10%; }
@@ -5124,7 +5135,7 @@ next.page-numbers:hover {
     overflow: auto;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .grid-description-content.places {
         padding: 20px;
     }
@@ -5164,10 +5175,11 @@ next.page-numbers:hover {
 
 .grid-map {
     float: left;
-    width: 33.333333333%;
 }
 
 .grid-map a { display: inline-block; }
+
+.grid-places { padding-bottom: 15%; }
 
 .grid-thumbnail {
     float: left;
@@ -5253,4 +5265,18 @@ next.page-numbers:hover {
 
 .grid.places.active .grid-info-list {
     display: block;
+}
+
+.mobile-grid, .tablet-grid { display: none; }
+
+@media screen and (min-width: 415px) and (max-width: 1023px) {
+    .tablet-grid {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .mobile-grid {
+        display: block;
+    }
 }

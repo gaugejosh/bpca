@@ -20,13 +20,13 @@ $(document).ready(function () {
         $grid.removeClass('active');
 
         // hide any open descriptions
-        $('.grid-alt').hide();
+        $('.grid-alt').slideUp();
 
         // add the active class to the current element
         $(this).addClass('active');
 
         // show current element description
-        $target.html($content).show();
+        $target.html($content).slideDown();
 
     });
 
