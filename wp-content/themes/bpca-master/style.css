@@ -5049,6 +5049,10 @@ next.page-numbers:hover {
     padding:          0;
 }
 
+.grid-alt .left-col.places { width: 63%; }
+
+.grid-alt .right-col.places { width: 27%; }
+
 .grid-alt .left-col,
 .grid-alt .right-col {
     margin-bottom: 20px;
@@ -5247,6 +5251,10 @@ next.page-numbers:hover {
     .grid-description-content.places {
         padding: 20px;
     }
+
+    .grid-alt .left-col.places,
+
+    .grid-alt .right-col.places { width: 100%; }
 }
 
 @media screen and (min-width: 415px) and (max-width: 1023px) {
@@ -5285,8 +5293,4 @@ next.page-numbers:hover {
         margin-bottom: 0;
         width: 47.5%;
     }
-
-    .grid-alt .left-col.places { width: 63%; }
-
-    .grid-alt .right-col.places { width: 27%; }
 }

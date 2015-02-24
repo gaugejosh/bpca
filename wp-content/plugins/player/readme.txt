@@ -4,7 +4,7 @@ Donate link: http://web-dorado.com/products/wordpress-player.html
 Tags: video, video player ,video gallery,video plugin, Video Player plugin, video widget, videos, player, flash,flash player, html5 video, html5 player, HTML5 video player, youtube, youtube player, youtube Video Player, youtube videos, embed youtube, youtube widget, youtube plugin, youtube gallery, youtube playlist, MP4, video embed,video blog,  playlist, playlists, video playlist, high definition Video Player, myvideo, m4v, flash video player, video sidebar widget, Wp flash Video Player, video sharing, share video, HTML5 video gallery, embed video, video ekleme
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,7 +47,6 @@ Features of Spider [WordPress Video Player](http://web-dorado.com/products/wordp
 * Possibility to quickly switch to the library and back to the playlist changing the video.    
 * Possibility of adding either a large playlist or a single video for pages and posts.   
 * 7 default themes   
-* Possibility of creating new themes.   
 * Possibility of displaying HD button in the front end for switching to the HD version of the video.   
 * Possibility to embed the videos used with the player.   
 * Possibility to add social media sharing buttons- Facebook, Google+ and Twitter
@@ -58,16 +57,13 @@ Features of Spider [WordPress Video Player](http://web-dorado.com/products/wordp
 * Possibility to change the position of the control buttons using drag and drop feature.   
 * Possibility to choose the animation type for the load of the Flash player.   
 * An option of setting the format priority for the videos  
-* Possibility to add thumbnails for YouTube videos  
 * Option of changing control bar position (up/down)   
 
 Upgrade to [WordPress Player Pro](http://web-dorado.com/products/wordpress-player.html) to add features: 
 
 * Possibility to remove WebDorado watermark from the player, as well as possibility to add custom Watermark.  
  
-Spider video [WordPress  Player](http://web-dorado.com/products/wordpress-player.html)  has wonderful flash effects. You can add several video players in one page with different parameters and playlists. With Spider video player you can have unlimited playlists with unlimited number of videos.
-
-The Video Player is fully integrated with the latest version of WordPress.  
+Spider video [WordPress  Player](http://web-dorado.com/products/wordpress-player.html) has wonderful flash effects. You can add several video players in one page with different themes and playlists. With Spider video player you can have unlimited playlists with unlimited number of videos.
  
 ###IMPORTANT: If you think you found a bug in Spider Video Player or have any problem/question concerning the plugin, please check out [Support Forum](http://web-dorado.com/forum/spider-video-player-wordpress.html) in our website. If you do not find a solution here, do not hesitate to contact us at [info@web-dorado.com](mailto:info@web-dorado.com).
  
@@ -144,6 +140,8 @@ bug fixed in wp 3.9 editor
 = 1.5.0 =
 backend design problems in wp3.8, notices fixed
 
+= 1.0.0 =
+Initial version
 
 == Installation ==
 
@@ -183,6 +181,8 @@ If any problem occurs with Spider [WordPress Video Plugin](http://wordpress.org/
 2.  Click 'Add New'  
 3.  Choose the 'Upload' option  
 4.  Click **Choose file** (**Browse**) and select the Spider Video Player zip file.  
+*For Mac Users*     
+*Go to your Downloads folder and locate the folder with the Spider Event Calendar. Right-click on the folder and select Compress. Now you have a newly created .zip file which can be installed as described here.* 
 5.  Click **Install Now** button.  
 6.  Once it is complete, activate the plugin.  
 
