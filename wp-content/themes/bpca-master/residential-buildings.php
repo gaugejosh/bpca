@@ -462,4 +462,7 @@ $('<?=$tabnames;?>').easytabs({
     }
 });
 </script>
+<script>
+	alert($( window ).width());
+</script>
 <?php get_footer(); ?>

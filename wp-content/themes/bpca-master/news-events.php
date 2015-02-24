@@ -287,20 +287,17 @@ if (array_key_exists('filter-by-cat', $_POST))
 			}
 			//echo tribe_get_meta();
 			$eventdata = tribe_get_events($args);
+			echo '<div id="tab-container' . $currowcount . '">';
+			echo '<ul id="box-row-' . $curcolcount . '">';
 			foreach ($eventdata as $curevent)
 			{
-				// create a new unordered list if this is a new row
-				if ($curcolcount == 1)
-				{
-					echo '<div id="tab-container' . $currowcount . '" class="news-events">';
-					echo '<ul id="box-row-' . $curcolcount . '" class="grids">';
-				}
-				echo '<li id="name-box-' . $curevent->ID . '" class="grid">';
-				echo '<div class="event-box-date-area">';
-				echo '<div class="blog-date-format events">';
+				echo '<li class="header-box" id="name-box-' . $curevent->ID . '">';
+				echo '  <div class="event-box-date-area">';
+				echo '  <div class="blog-date-format events">';
 				echo date('n/j', strtotime($curevent->EventStartDate));
-				echo '</div>';
+				echo '  </div>';
 				$categories = tribe_get_event_cat_slugs($curevent->ID);
+
 				if ($categories)
 				{
 					$showcategory = "";
@@ -351,7 +348,7 @@ if (array_key_exists('filter-by-cat', $_POST))
 				echo tribe_get_start_time($curevent->ID) . ' - ' . tribe_get_end_time($curevent->ID);
 				echo '      </div>'; // name-box-sub-head
 				echo '  </div>'; // name-box-text-block
-				echo '  <a href="#descr-area-box-' . $curevent->ID . '" class="clearfix">';
+				echo '  <a href="#descr-area-box-' . $curevent->ID . '">';
 				echo '      <p class="event-box-text"><span>Replacing</span></p>';
 				echo '  </a>';
 				echo '</li>'; // name-box
@@ -398,58 +395,17 @@ if (array_key_exists('filter-by-cat', $_POST))
 					)
 				);
 
-				// increase the count for the next column
-				$curcolcount ++;
-				// add to the total blocks
-				$totalblocks ++;
-				// need to start a new row?
-				if ($curcolcount > $maxcolumns)
-				{
-					// close the current unordered list
-					echo '</ul>';
-					// reset the column count to start a new row
-					$curcolcount = 1;
 
-					// build the description section before starting a new row
-					build_descr_box($descrinfo, $currowcount);
-
-					// clear the description information array
-					$descrinfo = array();
-
-					echo '</div><!-- #tab-container' . $currowcount . '-->';
-
-					// increase the row number by 1
-					$currowcount ++;
-				}
 			}
 
-			// do any blank boxes need to be added?
-			if ($curcolcount > 1 && $curcolcount <= $maxcolumns)
-			{
-				$savedcolcount = $curcolcount;
-				while ($curcolcount <= $maxcolumns)
-				{
-					echo '<li class="header-box" id="name-box-' . $curcolcount . $currowcount . '">';
-					echo '  <a href="#descr-area-box-' . $curcolcount . $currowcount . '"></a>';
-					//echo '      <p class="exc-text"><span>Replacing</span></p>';
-					//echo '  </a>';
-					echo '&nbsp;</li>';
-					$curcolcount ++;
-				}
-				echo "</ul>"; // close the list
+			?>
+			</ul>
+			<?php
 				// build the remaining description information boxes
 				build_descr_box($descrinfo, $currowcount);
-				// build any blank description boxes so the easytabs will work
-				while ($savedcolcount <= $maxcolumns)
-				{
-					echo '<div class="" id="descr-area-box-' . $savedcolcount . $currowcount . '"></div>';
-					$savedcolcount ++;
-				}
-				echo '</div><!-- #tab-container' . $currowcount . '-->';
-				$currowcount ++;
-			}
 			?>
 
+			</div>
 		</main>
 	</div>
 <?php
@@ -650,5 +606,15 @@ function build_descr_box($descrdetail, $rownum)
 			var formid = document.getElementById('filter-cat');
 			formid.submit();
 		}
+	</script>
+
+	<script>
+		$('.event-box-text').on('click', function() {
+			// get specific id number
+			var $headerId = $(this).closest('li').attr('id').match(/\d+/),
+				headerNumber = $headerId[0],
+				$contentDiv = $( "div[id$=headerNumber")
+
+		});
 	</script>
 <?php get_footer(); ?>
