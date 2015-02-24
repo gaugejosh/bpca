@@ -57,7 +57,6 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-                    <div>&nbsp;</div>
                     <div class="main-image" style="margin-bottom: -8px">
                         <img src="<?=$homepagefull;?>" />
                            <div class="main-image-link">

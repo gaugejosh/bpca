@@ -17,17 +17,14 @@ $(document).ready(function () {
         var $content = $(this).find('.grid-description').html();
 
         if ($(this).hasClass('active')) {
-            // revert row border color
-            $grid.css('border-bottom', '#ebedee');
 
             // remove any active classes
             $grid.removeClass('active');
 
             // hide any open descriptions
             $('.grid-alt').slideUp('slow');
+
         } else {
-            // revert row border color
-            $grid.css('border-bottom', '#ebedee');
 
             // remove any active classes
             $grid.removeClass('active');
@@ -39,10 +36,6 @@ $(document).ready(function () {
 
             // add the active class to the current element
             $(this).addClass('active');
-
-            $grid.prev().css('border-bottom', '#19a6e2');
-            $grid.css('border-bottom', '#19a6e2');
-            $grid.next().css('border-bottom', '#19a6e2');
 
             // show current element description
             $target.slideDown('slow');

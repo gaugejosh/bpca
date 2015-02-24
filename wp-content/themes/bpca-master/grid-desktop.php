@@ -72,3 +72,5 @@ while ($loop->have_posts()) : $loop->the_post();
 	<li class="grid"></li>
 	<li class="grid-alt"></li>
 <?php endif; ?>
+
+<?php wp_reset_query() ?>
