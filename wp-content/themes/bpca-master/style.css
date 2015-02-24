@@ -5087,6 +5087,8 @@ next.page-numbers:hover {
 
 .grid-aside { overflow: auto; }
 
+.grid-aside-content { overflow: auto; }
+
 .grid-button {
     background-color: #dad9d7;
     bottom:           0;
