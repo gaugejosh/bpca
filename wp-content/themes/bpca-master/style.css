@@ -5089,6 +5089,11 @@ next.page-numbers:hover {
 
 .grid-aside-content { overflow: auto; }
 
+.grid-aside-content ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
 .grid-button {
     background-color: #dad9d7;
     bottom:           0;
@@ -5150,6 +5155,18 @@ next.page-numbers:hover {
 .grid-info-list h2 {
     font-family: 'Proxima Nova - Bold';
     font-size:   24px;
+}
+
+.grid-map {
+    float: left;
+    width: 33.333333333%;
+}
+
+.grid-map a { display: inline-block; }
+
+.grid-thumbnail {
+    float: left;
+    width: 66.666666667%;
 }
 
 /* PSEUDO-ELEMENTS */

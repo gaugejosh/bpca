@@ -72,7 +72,11 @@ get_header(); ?>
 							<div class="grid-description-images">
 								<ul>
 									<li><?php the_post_thumbnail() ?></li>
-									<li><iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d12096.398901652281!2d-74.01518539999995!3d40.7158211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCorner+Vesey+St.+%26+North+End+Ave%2C++New+York%2C+NY+10004!5e0!3m2!1sen!2sus!4v1424561525368" width="400" height="350" frameborder="0" style="border:0"></iframe></li>
+									<li class="grid-map places">
+										<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
+											<img src="<?php the_field('place_gmap') ?>">
+										</a>
+									</li>
 								</ul>
 							</div><!-- .grid-description-images -->
 
@@ -99,6 +103,17 @@ get_header(); ?>
 					<?php $i ++; ?>
 
 				<?php endwhile; ?>
+
+				<?php // determine if we need to add additional elements need to be added to the list ?>
+				<?php if (($i - 1) % 3 === 1): ?>
+					<li class="grid"></li>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php elseif (($i - 1) % 3 === 2): ?>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php endif; ?>
+
 			</ul>
 		</div>
 		<!-- .about-grids -->

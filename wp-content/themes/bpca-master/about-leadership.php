@@ -82,6 +82,16 @@ get_header(); ?>
 					<?php $i ++; ?>
 
 				<?php endwhile; ?>
+
+				<?php // determine if we need to add additional elements need to be added to the list ?>
+				<?php if (($i - 1) % 3 === 1): ?>
+					<li class="grid"></li>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php elseif (($i - 1) % 3 === 2): ?>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php endif; ?>
 			</ul>
 		</div>
 		<!-- .about-grids -->

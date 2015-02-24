@@ -71,10 +71,12 @@ get_header(); ?>
 						<div class="grid-description">
 							<div class="grid-description-images">
 								<ul>
-									<li class="grid-thumbnail places"><?php the_post_thumbnail() ?></li>
+									<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+									<li class="grid-thumbnail places"><img src="<?php echo $url ?>"></li>
 									<li class="grid-map places">
 										<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
-											<img src="<?php the_field('place_gmap') ?>"> </a>
+											<img src="<?php the_field('place_gmap') ?>">
+										</a>
 									</li>
 								</ul>
 							</div>
@@ -87,51 +89,64 @@ get_header(); ?>
 								<div class="right-col places">
 									<div class="grid-aside-content">
 										<?php the_field('places_descr_tag') ?>
-										<br>
-										<a class="yellow-link" href="mailto:?subject=<?php echo get_the_title() ?>">
-											<div class="social-icon">
-												<i class="fa fa-envelope-o"></i>
-											</div>
 
-											<div class="share-text">Forward to Friends</div>
-										</a>
-										<a href="http://twitter.com/share?text=<?php get_the_title() ?>&url=">
-											<div class="social-icon">
-												<i class="fa fa-twitter"></i>
-											</div>
+										<ul>
+											<li>
+												<a class="yellow-link" href="mailto:?subject=<?php echo get_the_title() ?>">
+													<div class="social-icon">
+														<i class="fa fa-envelope-o"></i>
+													</div>
 
-											<div class="share-text">Share on Twitter</div>
-										</a>
+													<div class="share-text">Forward to Friends</div>
+												</a>
+											</li>
 
-										<a href="https://www.facebook.com/sharer/sharer.php?u=">
-											<div class="social-icon">
-												<i class="fa fa-facebook"></i>
-											</div>
+											<li>
+												<a href="http://twitter.com/share?text=<?php get_the_title() ?>&url=">
+													<div class="social-icon">
+														<i class="fa fa-twitter"></i>
+													</div>
 
-											<div class="share-text">Share on Facebook</div>
-										</a>
+													<div class="share-text">Share on Twitter</div>
+												</a>
+											</li>
 
-										<a href="<?php the_field('places_website') ?>" class="website-black" target="_blank">
-											<div class="social-icon site">
-												<div class="website-img-swap-black"></div>
-											</div>
+											<li>
+												<a href="https://www.facebook.com/sharer/sharer.php?u=">
+													<div class="social-icon">
+														<i class="fa fa-facebook"></i>
+													</div>
 
-											<div class="share-text-white site">Visit the Site</div>
-										</a>
+													<div class="share-text">Share on Facebook</div>
+												</a>
+											</li>
 
-										<div class="link-dir-area-black short">
-											<div class="social-icon">
-												<i class="fa fa-map-marker"></i>
-											</div>
+											<li>
+												<a href="<?php the_field('places_website') ?>" class="website-black" target="_blank">
+													<div class="social-icon site">
+														<div class="website-img-swap-black"></div>
+													</div>
 
-											<div class="share-text">Get Personalized Directions</div>
+													<div class="share-text-white site">Visit the Site</div>
+												</a>
+											</li>
 
-											<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
-												<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
-												<input type="hidden" name="daddr" value="<?php the_field('places_address') ?>" />
-												<input type="submit" value="GO" />
-											</form>
-										</div>
+											<li>
+												<div class="link-dir-area-black short">
+													<div class="social-icon">
+														<i class="fa fa-map-marker"></i>
+													</div>
+
+													<div class="share-text">Get Personalized Directions</div>
+
+													<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
+														<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
+														<input type="hidden" name="daddr" value="<?php the_field('places_address') ?>" />
+														<input type="submit" value="GO" />
+													</form>
+												</div>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -150,6 +165,16 @@ get_header(); ?>
 					<?php $i ++; ?>
 
 				<?php endwhile; ?>
+
+				<?php // determine if we need to add additional elements need to be added to the list ?>
+				<?php if (($i - 1) % 3 === 1): ?>
+					<li class="grid"></li>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php elseif (($i - 1) % 3 === 2): ?>
+					<li class="grid"></li>
+					<li class="grid-alt"></li>
+				<?php endif; ?>
 			</ul>
 		</div>
 		<!-- .about-grids -->
