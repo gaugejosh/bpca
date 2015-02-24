@@ -5083,6 +5083,11 @@ next.page-numbers:hover {
 
 .grid-alt .left-col { margin-right: 5%; }
 
+.grid-alt .left-col ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
 .grid-alt .left-col.places { margin-right: 10%; }
 
 .grid-aside { overflow: auto; }

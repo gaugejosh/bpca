@@ -61,6 +61,11 @@ get_header(); ?>
 
 						<div class="grid-description">
 							<div class="left-col">
+								<ul>
+									<li><?php the_title() ?></li>
+									<li><?php the_field('position_title') ?></li>
+									<li><?php the_field('confirmed_on') ?></li>
+								</ul>
 								<p><?php the_field('bio_column_1') ?></p>
 							</div>
 							<!-- .left-col -->
