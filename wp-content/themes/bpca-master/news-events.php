@@ -622,13 +622,20 @@ if ($curday != "")
 		viewportWidth = $(window).width();
 	});
 
+	// get an array of list elements
+	var headerArray = $('.header-box');
+
+	// add any additional li elements
+	if (Math.floor(headerArray.length / 3) == 1) {
+		$('#box-row-1').append('<li class="header-box"></li><li class="header-box"></li>');
+	} else if (Math.floor(headerArray.length / 3) == 2) {
+		$('#box-row-1').append('<li class="header-box"></li>');
+	}
+
 		$('.event-box-text').on('click', function(e) {
 
 			// get specific id number
 			var closestLi = $(this).closest('li'),
-
-				// get an array of list elements
-				headerArray = $('.header-box'),
 
 				// find the string with the unique id
 				headerId = closestLi.attr('id').match(/\d+/),
@@ -680,8 +687,23 @@ if ($curday != "")
 					// close any open containers
 					$( 'div[id^="descr-area-box-"]' ).slideUp();
 
-					// show container for selected element
-					$( 'div[id$=' + headerNumber + ']' ).appendTo(closestLi).slideDown();
+					// get the current index of clicked item
+					$.each(headerArray, function(index, value) {
+						if ($(this).attr('id') == closestLi.attr('id')) {
+							listItemIndex = index;
+						}
+					});
+
+					// please don't judge me on this
+					if (listItemIndex / 2 < 1) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[1]).slideDown();
+					} else if (listItemIndex / 3 < 2) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[3]).slideDown();
+					} else if (listItemIndex / 3 < 3) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[5]).slideDown();
+					} else if (listItemIndex / 3 < 4) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[7]).slideDown();
+					}
 				}
 			} else {
 				// stop click event from firing
@@ -711,8 +733,15 @@ if ($curday != "")
 						}
 					});
 
-					if (listItemIndex % 3 < 0) {
+					// please don't judge me on this
+					if (listItemIndex / 3 < 1) {
 						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[2]).slideDown();
+					} else if (listItemIndex / 3 < 2) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[5]).slideDown();
+					} else if (listItemIndex / 3 < 3) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[8]).slideDown();
+					} else if (listItemIndex / 3 < 4) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[12]).slideDown();
 					}
 
 				}
