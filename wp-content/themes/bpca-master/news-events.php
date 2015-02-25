@@ -495,10 +495,10 @@ function build_descr_box($descrdetail, $rownum)
 		echo '</li>';
 		echo '</ul>';
 		echo '          </div>';
-		echo '      <div class="link-dir-area-white short">';
-		echo '      <div class="social-icon"><i class="fa fa-map-marker"></i></div><div class="share-text-white">Get Personalized Directions</div>';
 		echo '<ul>';
 		echo '<li>';
+		echo '<div class="link-dir-area-white short">';
+		echo '<div class="social-icon"><i class="fa fa-map-marker"></i></div><div class="share-text-white">Get Personalized Directions</div>';
 		echo '<form id="gdirects-white" action="http://maps.google.com/maps" method="get" target="_blank">
                 <input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
                 <input type="hidden" name="daddr" value="' . $descrtext['address'] . '" />

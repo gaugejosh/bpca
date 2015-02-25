@@ -85,7 +85,7 @@ get_header(); ?>
 										<?php the_field('places_descr_tag') ?>
 
 										<ul class="school-side-content">
-											<li>
+											<li class="cf">
 												<a class="yellow-link" href="mailto:?subject=<?php echo get_the_title() ?>">
 													<div class="social-icon">
 														<i class="fa fa-envelope-o"></i>
@@ -95,7 +95,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="http://twitter.com/share?text=<?php get_the_title() ?>&url=">
 													<div class="social-icon">
 														<i class="fa fa-twitter"></i>
@@ -105,7 +105,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="https://www.facebook.com/sharer/sharer.php?u=">
 													<div class="social-icon">
 														<i class="fa fa-facebook"></i>
@@ -115,7 +115,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="<?php the_field('resident_site_website') ?>" class="website-black" target="_blank">
 													<div class="social-icon site">
 														<div class="website-img-swap"></div>
@@ -125,7 +125,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<div class="link-dir-area-white short">
 													<div class="social-icon">
 														<i class="fa fa-map-marker"></i>
@@ -227,7 +227,7 @@ get_header(); ?>
 										<?php the_field('places_descr_tag') ?>
 
 										<ul class="school-side-content">
-											<li>
+											<li class="cf">
 												<a class="yellow-link" href="mailto:?subject=<?php echo get_the_title() ?>">
 													<div class="social-icon">
 														<i class="fa fa-envelope-o"></i>
@@ -237,7 +237,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="http://twitter.com/share?text=<?php get_the_title() ?>&url=">
 													<div class="social-icon">
 														<i class="fa fa-twitter"></i>
@@ -247,7 +247,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="https://www.facebook.com/sharer/sharer.php?u=">
 													<div class="social-icon">
 														<i class="fa fa-facebook"></i>
@@ -257,7 +257,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="<?php the_field('resident_site_website') ?>" class="website-black" target="_blank">
 													<div class="social-icon site">
 														<div class="website-img-swap"></div>
@@ -267,7 +267,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<div class="link-dir-area-white short">
 													<div class="social-icon">
 														<i class="fa fa-map-marker"></i>
@@ -375,7 +375,7 @@ get_header(); ?>
 										<?php the_field('places_descr_tag') ?>
 
 										<ul class="school-side-content">
-											<li>
+											<li class="cf">
 												<a class="yellow-link" href="mailto:?subject=<?php echo get_the_title() ?>">
 													<div class="social-icon">
 														<i class="fa fa-envelope-o"></i>
@@ -385,7 +385,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="http://twitter.com/share?text=<?php get_the_title() ?>&url=">
 													<div class="social-icon">
 														<i class="fa fa-twitter"></i>
@@ -395,7 +395,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="https://www.facebook.com/sharer/sharer.php?u=">
 													<div class="social-icon">
 														<i class="fa fa-facebook"></i>
@@ -405,7 +405,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<a href="<?php the_field('resident_site_website') ?>" class="website-black" target="_blank">
 													<div class="social-icon site">
 														<div class="website-img-swap"></div>
@@ -415,7 +415,7 @@ get_header(); ?>
 												</a>
 											</li>
 
-											<li>
+											<li class="cf">
 												<div class="link-dir-area-white short">
 													<div class="social-icon">
 														<i class="fa fa-map-marker"></i>

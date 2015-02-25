@@ -432,29 +432,29 @@ function build_descr_box($descrdetail, $rownum)
 		echo '  <div class="descr-map-box">';
 		echo '      <div class="descr-map">';
 		//echo $descrtext['address'];
-		echo '<a href="http://maps.google.com/maps/?daddr=' . str_replace(" ", "+", $descrtext['map_addr']) . '">';
+		echo '<a class="cf" href="http://maps.google.com/maps/?daddr=' . str_replace(" ", "+", $descrtext['map_addr']) . '">';
 		echo '<img src="' . $descrtext['gmap']['url'] . '" />';
 		echo '</a>';
-		echo '      </div>';
-		echo '  </div>';
-		echo '  <div class="descr-text-box-container events-page">';
-		echo '      <div class="descr-text-3-box events-page">';
-		echo '          <div class="descr-text">';
+		echo '</div>';
+		echo '</div>';
+		echo '<div class="descr-text-box-container events-page">';
+		echo '<div class="descr-text-3-box events-page">';
+		echo '<div class="descr-text">';
 		echo $descrtext['descr'];
-		echo '          </div>';
-		echo '      <div class="descr-text-blue-links-box" id="resident">';
-		echo '          <div class="links-text alt" id="white-links">';
-		echo '<a href="mailto:?subject=' . $descrtext['post-title'] . '&amp;body=' . $descrtext['post-title'] . '%20-%20' . $descrtext['post-text'] . '">';
-		echo '<div class="social-icon"><i class="fa fa-envelope-o"></i></div><div class="share-text-white">Forward to Friends</div></a><br />';
-		echo '<a href="http://twitter.com/share?text=' . $descrtext['post-title'] . '&url=' . $descrtext['post-text'] . '">';
+		echo '</div>';
+		echo '<div class="descr-text-blue-links-box" id="resident">';
+		echo '<div class="links-text alt" id="white-links">';
+		echo '<a class="cf" href="mailto:?subject=' . $descrtext['post-title'] . '&amp;body=' . $descrtext['post-title'] . '%20-%20' . $descrtext['post-text'] . '">';
+		echo '<div class="social-icon"><i class="fa fa-envelope-o"></i></div><div class="share-text-white">Forward to Friends</div></a>';
+		echo '<a class="cf" href="http://twitter.com/share?text=' . $descrtext['post-title'] . '&url=' . $descrtext['post-text'] . '">';
 		echo '<div class="social-icon"><i class="fa fa-twitter"></i></div><div class="share-text-white">Share on Twitter</div>';
-		echo '</a><br />';
-		echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $descrtext['post-text'] . '">';
+		echo '</a>';
+		echo '<a class="cf" href="https://www.facebook.com/sharer/sharer.php?u=' . $descrtext['post-text'] . '">';
 		echo '<div class="social-icon"><i class="fa fa-facebook"></i></div><div class="share-text-white">Share on Facebook</div>';
 		echo '</a>';
 		if ($descrtext['website'] != "")
 		{
-			echo '      <br /><a href="' . $descrtext['website'] . '" class="website-white-link" target="_blank">';
+			echo '      <a href="' . $descrtext['website'] . '" class="website-white-link" target="_blank">';
 			echo '      <div class="social-icon site"><div class="website-img-swap"></div></div>';
 			//echo '      <img src="' . get_template_directory_uri() . '/images/website_trace-01.jpg" style="width:30px;height:30px;" />';
 			echo '<div class="share-text-white site">Visit the Site</div>';
@@ -546,8 +546,5 @@ function build_descr_box($descrdetail, $rownum)
 				$('.cat-light-gray.condo').css({opacity: '0.3'});
 			}
 		});
-	</script>
-	<script>
-		alert($(window).width());
 	</script>
 <?php get_footer(); ?>
