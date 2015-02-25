@@ -724,7 +724,7 @@ if ($curday != "")
 					$(this).addClass('active-grid');
 
 					// close any open containers
-					$( 'div[id^="descr-area-box-"]' ).slideUp();
+					$( 'div[id^="descr-area-box-"]' ).hide();
 
 					// get the current index of clicked item
 					$.each(headerArray, function(index, value) {

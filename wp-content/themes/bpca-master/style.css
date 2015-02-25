@@ -2081,6 +2081,7 @@ ul#menu-resource-links > li > a:hover {
     display: none;
     height: auto;
     position: relative;
+    clear: both;
     width: 100%;
 }
 

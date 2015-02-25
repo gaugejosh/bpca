@@ -30,9 +30,9 @@ $(document).ready(function () {
             $grid.removeClass('active');
 
             // hide any open descriptions
-            $('.grid-alt').slideUp('slow', function() {
+            //$('.grid-alt').slideUp('slow', function() {
                 $target.html($content);
-            });
+            //});
 
             // add the active class to the current element
             $(this).addClass('active');
