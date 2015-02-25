@@ -5070,6 +5070,11 @@ next.page-numbers:hover {
     padding:          0;
 }
 
+.grid-alt.places.schools {
+    background-color: #19a6e2;
+    color: #fff;
+}
+
 .grid-alt .left-col.places { width: 63%; }
 
 .grid-alt .right-col.places { width: 27%; }
@@ -5116,6 +5121,8 @@ next.page-numbers:hover {
 }
 
 .grid-description { display: none; }
+
+.grid-description-content.places ul { list-style: none; }
 
 .grid-description-content.places {
     padding: 40px;
@@ -5179,6 +5186,8 @@ next.page-numbers:hover {
     width: 66.666666667%;
 }
 
+.school-side-content a { color: #fff; }
+
 .show-mobile-tablet { display: none; }
 
 /* PSEUDO-ELEMENTS */
@@ -5207,14 +5216,15 @@ next.page-numbers:hover {
 }
 
 /* HOVER ACTIONS */
-.grid:hover .grid-button {
-    background-color: #19a6e2;
-    color:            #fff;
-}
-
-.grid.places:hover .grid-button {
+.grid.places .grid-button:hover {
     background-color: #fcd036;
     color:            #000;
+}
+
+.grid .grid-button:hover,
+.grid .grid-button.schools:hover {
+    background-color: #19a6e2;
+    color:            #fff;
 }
 
 .grid:hover .grid-info {
@@ -5238,14 +5248,15 @@ next.page-numbers:hover {
     border-bottom: none;
 }
 
-.grid.active .grid-button {
-    background: #19a6e2;
-    color:      #fff;
-}
-
 .grid.places.active .grid-button {
     background-color: #fcd036;
     color:            #000;
+}
+
+.grid.active .grid-button,
+.grid.active .grid-button.schools {
+    background: #19a6e2;
+    color:      #fff;
 }
 
 .grid.active .grid-button:after {
