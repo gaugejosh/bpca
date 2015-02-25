@@ -47,10 +47,10 @@ if (array_key_exists('filter-by-cat', $_POST))
 		<main id="main" class="site-main" role="main">
 			<div class="breadcrumbs">
 				<?php if (function_exists('bcn_display') && ! is_home())
-				{
-					bcn_display();
-				}
-				?>
+{
+	bcn_display();
+}
+?>
 			</div>
 			<div class="event-header-area">
 				<div class="event-image-area">
@@ -64,14 +64,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 							<div class="cat-sel-col" id="events">
 								<div class="checker big">
                     <span class="<?php if (array_search('event-parks-rec', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="community-check" class="cat-check" name="cat[]" value="event-parks-rec"
 	                    <?php if (array_search('event-parks-rec', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -88,14 +88,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 
 								<div class="checker big">
                     <span class="<?php if (array_search('event-art-culture', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="art-check" class="cat-check" name="cat[]" value="event-art-culture"
 	                    <?php if (array_search('event-art-culture', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -112,14 +112,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 
 								<div class="checker big">
                     <span class="<?php if (array_search('event-environment', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="enviro-check" class="cat-check" name="cat[]" value="event-environment"
 	                    <?php if (array_search('event-environment', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -137,14 +137,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 							<div class="cat-sel-col" id="events">
 								<div class="checker big">
                     <span class="<?php if (array_search('event-kids-family', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="people-check" class="cat-check" name="cat[]" value="event-kids-family"
 	                    <?php if (array_search('event-kids-family', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -161,14 +161,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 
 								<div class="checker big">
                     <span class="<?php if (array_search('event-governance', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="gov-check" class="cat-check" name="cat[]" value="event-governance"
 	                    <?php if (array_search('event-governance', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -185,14 +185,14 @@ if (array_key_exists('filter-by-cat', $_POST))
 
 								<div class="checker big">
                     <span class="<?php if (array_search('event-volunteer', $catarray) !== false)
-                    {
-	                    echo 'checked';
-                    } ?>">
+{
+	echo 'checked';
+} ?>">
                     <input type="checkbox" id="bid-check" class="cat-check" name="cat[]" value="event-volunteer"
 	                    <?php if (array_search('event-volunteer', $catarray) !== false)
-	                    {
-		                    echo ' checked';
-	                    } ?>
+{
+	echo ' checked';
+} ?>
 	                    />
                     </span>
 								</div>
@@ -239,171 +239,171 @@ if (array_key_exists('filter-by-cat', $_POST))
 				</div>
 			</div>
 			<?php
-			$curcolcount = 1; // track what column is being built, limited to 3
-			$currowcount = 1; // track what row we are on
-			$totalblocks = 0; // tracks how many total boxes are being used
-			$maxcolumns  = 3; // default number of columns per row
+$curcolcount = 1; // track what column is being built, limited to 3
+$currowcount = 1; // track what row we are on
+$totalblocks = 0; // tracks how many total boxes are being used
+$maxcolumns  = 3; // default number of columns per row
 
-			// reduce column count if reading page from a mobile device or tablet
-			if (is_tablet())
+// reduce column count if reading page from a mobile device or tablet
+if (is_tablet())
+{
+	$maxcolumns = 2;
+} else if (is_mobile())
+{
+	$maxcolumns = 1;
+}
+
+// array to hold the description information for building the collapsable divs
+$descrinfo = array();
+if (sizeof($catarray) == 0)
+{
+	array_push($catarray, 'event-art-culture');
+	array_push($catarray, 'event-environment');
+	array_push($catarray, 'event-parks-rec');
+	array_push($catarray, 'event-kids-family');
+	array_push($catarray, 'event-volunteer');
+	array_push($catarray, 'event-governance');
+}
+
+// create loop to display all descriptions from the post type
+$args = array(
+	'posts_per_page' => 15,
+	'eventDisplay'   => $eventdisplay,
+	'tax_query'      => array(
+		array(
+			'taxonomy' => 'tribe_events_cat',
+			'field'    => 'slug',
+			'terms'    => $catarray,
+		),
+	)
+	//'start_date' => '2015-01-29',
+	//'end_date' => '2015-01-30'
+);
+if ($startdate != "none")
+{
+	// add the date filter
+	$args['start_date'] = $startdate;
+	$args['end_date']   = $enddate;
+}
+//echo tribe_get_meta();
+$eventdata = tribe_get_events($args);
+echo '<div id="tab-container' . $currowcount . '">';
+echo '<ul id="box-row-' . $curcolcount . '">';
+foreach ($eventdata as $curevent)
+{
+	echo '<li class="header-box" id="name-box-' . $curevent->ID . '">';
+	echo '  <div class="event-box-date-area">';
+	echo '  <div class="blog-date-format events">';
+	echo date('n/j', strtotime($curevent->EventStartDate));
+	echo '  </div>';
+	$categories = tribe_get_event_cat_slugs($curevent->ID);
+
+	if ($categories)
+	{
+		$showcategory = "";
+		foreach ($categories as $category)
+		{
+			echo '<div class="';
+			switch ($category)
 			{
-				$maxcolumns = 2;
-			} else if (is_mobile())
-			{
-				$maxcolumns = 1;
+				case 'event-parks-rec':
+					$showcategory = "Parks &amp; Rec.";
+					echo 'cat-yellow';
+					break;
+				case 'event-art-culture':
+					$showcategory = "Art &amp; Culture";
+					echo 'cat-blue';
+					break;
+				case 'event-environment':
+					$showcategory = "Environment";
+					echo 'cat-black';
+					break;
+				case 'event-kids-family':
+					$showcategory = "Kids &amp; Family";
+					echo 'cat-drk-blue';
+					break;
+				case 'event-governance':
+					$showcategory = "Governance";
+					echo 'cat-drk-gray';
+					break;
+				case 'event-volunteer':
+					$showcategory = "Volunteer";
+					echo 'cat-light-gray';
+					break;
 			}
+			echo ' events" id="list-cat-boxes" style="float: left">';
+			echo '<div class="cat-text">';
+			echo strtoupper($showcategory) . '</div></div>';
+		}
+	}
+	echo '  </div>';
+	echo '  <div class="event-box-text-block">';
+	echo '      <div class="name-box-head">';
+	echo strtoupper($curevent->post_title);
+	echo '      </div>'; // name-box-head
+	echo '      <div class="name-box-sub-head">';
+	// echo date('l F j', strtotime($curevent->EventStartDate));
+	//echo '      <br />';
+	//echo tribe_get_venue($curevent->ID);
+	echo tribe_get_start_time($curevent->ID) . ' - ' . tribe_get_end_time($curevent->ID);
+	echo '      </div>'; // name-box-sub-head
+	echo '  </div>'; // name-box-text-block
+	echo '  <a href="#descr-area-box-' . $curevent->ID . '">';
+	echo '      <p class="event-box-text"><span>Replacing</span></p>';
+	echo '  </a>';
+	echo '</li>'; // name-box
+	// image pulled is based on what device is being used
+	$ismobile = false;
+	if (is_tablet() || is_mobile())
+	{
+		// use mobile cropped image
+		$imgfile = get_field('resident_mobile_img');
+		if ($imgfile != "")
+		{
+			$ismobile = true;
+		} else
+		{
+			// the thumbnail is blank, use the featured image
+			$imgfile = tribe_event_featured_image($curevent->ID);
+		}
 
-			// array to hold the description information for building the collapsable divs
-			$descrinfo = array();
-			if (sizeof($catarray) == 0)
-			{
-				array_push($catarray, 'event-art-culture');
-				array_push($catarray, 'event-environment');
-				array_push($catarray, 'event-parks-rec');
-				array_push($catarray, 'event-kids-family');
-				array_push($catarray, 'event-volunteer');
-				array_push($catarray, 'event-governance');
-			}
-
-			// create loop to display all descriptions from the post type
-			$args = array(
-				'posts_per_page' => 15,
-				'eventDisplay'   => $eventdisplay,
-				'tax_query'      => array(
-					array(
-						'taxonomy' => 'tribe_events_cat',
-						'field'    => 'slug',
-						'terms'    => $catarray,
-					),
-				)
-				//'start_date' => '2015-01-29',
-				//'end_date' => '2015-01-30'
-			);
-			if ($startdate != "none")
-			{
-				// add the date filter
-				$args['start_date'] = $startdate;
-				$args['end_date']   = $enddate;
-			}
-			//echo tribe_get_meta();
-			$eventdata = tribe_get_events($args);
-			echo '<div id="tab-container' . $currowcount . '">';
-			echo '<ul id="box-row-' . $curcolcount . '">';
-			foreach ($eventdata as $curevent)
-			{
-				echo '<li class="header-box" id="name-box-' . $curevent->ID . '">';
-				echo '  <div class="event-box-date-area">';
-				echo '  <div class="blog-date-format events">';
-				echo date('n/j', strtotime($curevent->EventStartDate));
-				echo '  </div>';
-				$categories = tribe_get_event_cat_slugs($curevent->ID);
-
-				if ($categories)
-				{
-					$showcategory = "";
-					foreach ($categories as $category)
-					{
-						echo '<div class="';
-						switch ($category)
-						{
-							case 'event-parks-rec':
-								$showcategory = "Parks &amp; Rec.";
-								echo 'cat-yellow';
-								break;
-							case 'event-art-culture':
-								$showcategory = "Art &amp; Culture";
-								echo 'cat-blue';
-								break;
-							case 'event-environment':
-								$showcategory = "Environment";
-								echo 'cat-black';
-								break;
-							case 'event-kids-family':
-								$showcategory = "Kids &amp; Family";
-								echo 'cat-drk-blue';
-								break;
-							case 'event-governance':
-								$showcategory = "Governance";
-								echo 'cat-drk-gray';
-								break;
-							case 'event-volunteer':
-								$showcategory = "Volunteer";
-								echo 'cat-light-gray';
-								break;
-						}
-						echo ' events" id="list-cat-boxes" style="float: left">';
-						echo '<div class="cat-text">';
-						echo strtoupper($showcategory) . '</div></div>';
-					}
-				}
-				echo '  </div>';
-				echo '  <div class="event-box-text-block">';
-				echo '      <div class="name-box-head">';
-				echo strtoupper($curevent->post_title);
-				echo '      </div>'; // name-box-head
-				echo '      <div class="name-box-sub-head">';
-				// echo date('l F j', strtotime($curevent->EventStartDate));
-				//echo '      <br />';
-				//echo tribe_get_venue($curevent->ID);
-				echo tribe_get_start_time($curevent->ID) . ' - ' . tribe_get_end_time($curevent->ID);
-				echo '      </div>'; // name-box-sub-head
-				echo '  </div>'; // name-box-text-block
-				echo '  <a href="#descr-area-box-' . $curevent->ID . '">';
-				echo '      <p class="event-box-text"><span>Replacing</span></p>';
-				echo '  </a>';
-				echo '</li>'; // name-box
-				// image pulled is based on what device is being used
-				$ismobile = false;
-				if (is_tablet() || is_mobile())
-				{
-					// use mobile cropped image
-					$imgfile = get_field('resident_mobile_img');
-					if ($imgfile != "")
-					{
-						$ismobile = true;
-					} else
-					{
-						// the thumbnail is blank, use the featured image
-						$imgfile = tribe_event_featured_image($curevent->ID);
-					}
-
-				} else
-				{
-					$imgfile = tribe_event_featured_image($curevent->ID);
-				}
-				// grab all of the address information
-				$venuestreet  = str_replace(' ', '+', tribe_get_address($curevent->ID));
-				$venuecity    = str_replace(' ', '+', tribe_get_city($curevent->ID));
-				$venuestate   = str_replace(' ', '+', tribe_get_state($curevent->ID));
-				$venuezip     = str_replace(' ', '+', tribe_get_zip($curevent->ID));
-				$venueaddress = $venuestreet . '+' . $venuecity . '+' . $venuestate . '+' . $venuezip;
-				array_push($descrinfo, array(
-						'pic'         => tribe_event_featured_image($curevent->ID),
-						'ismobile'    => $ismobile,
-						'address'     => $venueaddress,
-						'gmap'        => get_field('event_custom_gmap_img', $curevent->ID),
-						'descr'       => $curevent->post_content,
-						'gcal'        => tribe_get_gcal_link($curevent->ID),
-						'ical'        => tribe_get_single_ical_link(),
-						'email'       => tribe_get_event_link(),
-						'event-title' => $curevent->post_title,
-						'box-id'      => $curevent->ID,
-						'status'      => get_field('event_custom_status', $curevent->ID),
-						'venue'       => tribe_get_venue($curevent->ID),
-						'cost'        => get_field('event_custom_cost', $curevent->ID),
-						'tickets'     => get_field('event_buy_tickets', $curevent->ID)
-					)
-				);
+	} else
+	{
+		$imgfile = tribe_event_featured_image($curevent->ID);
+	}
+	// grab all of the address information
+	$venuestreet  = str_replace(' ', '+', tribe_get_address($curevent->ID));
+	$venuecity    = str_replace(' ', '+', tribe_get_city($curevent->ID));
+	$venuestate   = str_replace(' ', '+', tribe_get_state($curevent->ID));
+	$venuezip     = str_replace(' ', '+', tribe_get_zip($curevent->ID));
+	$venueaddress = $venuestreet . '+' . $venuecity . '+' . $venuestate . '+' . $venuezip;
+	array_push($descrinfo, array(
+			'pic'         => tribe_event_featured_image($curevent->ID),
+			'ismobile'    => $ismobile,
+			'address'     => $venueaddress,
+			'gmap'        => get_field('event_custom_gmap_img', $curevent->ID),
+			'descr'       => $curevent->post_content,
+			'gcal'        => tribe_get_gcal_link($curevent->ID),
+			'ical'        => tribe_get_single_ical_link(),
+			'email'       => tribe_get_event_link(),
+			'event-title' => $curevent->post_title,
+			'box-id'      => $curevent->ID,
+			'status'      => get_field('event_custom_status', $curevent->ID),
+			'venue'       => tribe_get_venue($curevent->ID),
+			'cost'        => get_field('event_custom_cost', $curevent->ID),
+			'tickets'     => get_field('event_buy_tickets', $curevent->ID)
+		)
+	);
 
 
-			}
+}
 
-			?>
+?>
 			</ul>
 			<?php
-				// build the remaining description information boxes
-				build_descr_box($descrinfo, $currowcount);
-			?>
+// build the remaining description information boxes
+build_descr_box($descrinfo, $currowcount);
+?>
 
 			</div>
 		</main>
@@ -513,15 +513,17 @@ function build_descr_box($descrdetail, $rownum)
 		});
 		// jQuery EasyTabs
 		<?php
-		// build tab rows
-		$tabnames = "";
-		for ($i = 1; $i < $currowcount; $i++) {
-			if ($i != 1) {
-				$tabnames .= ",";
-			}
-			$tabnames .= "#tab-container" . $i;
-		}
-		?>
+// build tab rows
+$tabnames = "";
+for ($i = 1; $i < $currowcount; $i ++)
+{
+	if ($i != 1)
+	{
+		$tabnames .= ",";
+	}
+	$tabnames .= "#tab-container" . $i;
+}
+?>
 		$('<?=$tabnames;?>').easytabs({
 			collapsible: true,
 			collapsedByDefault: true,
@@ -564,15 +566,16 @@ function build_descr_box($descrdetail, $rownum)
 					},
 					startIn: 0,
 					<?php
-						if ($startdate != "none") {
-							// preserve the month and day being viewed
-							$thistime = strtotime($startdate);
-							$thismonth = date('n', $thistime);
-							$thisyear = date('Y', $thistime);
-							echo 'month:' . $thismonth . ',';
-							echo 'year:' . $thisyear . ',';
-						}
-					?>
+if ($startdate != "none")
+{
+	// preserve the month and day being viewed
+	$thistime  = strtotime($startdate);
+	$thismonth = date('n', $thistime);
+	$thisyear  = date('Y', $thistime);
+	echo 'month:' . $thismonth . ',';
+	echo 'year:' . $thisyear . ',';
+}
+?>
 					displayWeekAbbr: true
 				}),
 				$month = $('#custom-month').html(cal.getMonthName() + ' ' + cal.getYear()),
@@ -586,12 +589,13 @@ function build_descr_box($descrdetail, $rownum)
 			});
 
 			<?php
-				if ($curday != "") {
-			?>
-			$('.fc-date:contains("<?=$curday;?>")').addClass("CurDate");
-			<?php
-				}
-			?>
+if ($curday != "")
+{
+	?>
+	$('.fc-date:contains("<?=$curday;?>")').addClass("CurDate");
+<?php
+}
+?>
 
 
 			function updateMonthYear() {
@@ -610,35 +614,108 @@ function build_descr_box($descrdetail, $rownum)
 
 	<script>
 
+	// create a width variable
+	var viewportWidth = $(window).width();
+
+	// reassign variable each time you resize the window. not ideal, but...
 	$(window).resize(function() {
-//		console.log($(window).width());
+		viewportWidth = $(window).width();
 	});
 
 		$('.event-box-text').on('click', function(e) {
 
 			// get specific id number
-			var closestLi = $(this).closest('li');
-			var headerId = closestLi.attr('id').match(/\d+/),
-				headerNumber = headerId[0];
+			var closestLi = $(this).closest('li'),
 
-			// stop click event from firing
-			e.preventDefault();
+				// get an array of list elements
+				headerArray = $('.header-box'),
 
-			if ($(this).hasClass('active-grid')) {
-				// remove class
-				$(this).removeClass('active-grid');
+				// find the string with the unique id
+				headerId = closestLi.attr('id').match(/\d+/),
 
-				// close any open containers
-				$( 'div[id^="descr-area-box-"]' ).slideUp();
+				// save unique id in a variable
+				headerNumber = headerId[0],
+
+				// list item index for tablet and desktop view
+				listItemIndex;
+
+			// check the window width to determine which click even to fire
+			if (viewportWidth < 639) {
+
+				// stop click event from firing
+				e.preventDefault();
+
+				// check to see if the clicked-on element is currently active
+				if ($(this).hasClass('active-grid')) {
+					// remove class
+					$(this).removeClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+				} else {
+					// set active class
+					$(this).addClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+
+					// show container for selected element
+					$( 'div[id$=' + headerNumber + ']' ).appendTo(closestLi).slideDown();
+				}
+			} else if (viewportWidth >= 640 && viewportWidth < 1023) {
+				// stop click event from firing
+				e.preventDefault();
+
+				// check to see if the clicked-on element is currently active
+				if ($(this).hasClass('active-grid')) {
+					// remove class
+					$(this).removeClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+				} else {
+					// set active class
+					$(this).addClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+
+					// show container for selected element
+					$( 'div[id$=' + headerNumber + ']' ).appendTo(closestLi).slideDown();
+				}
 			} else {
-				// set active class
-				$(this).addClass('active-grid');
+				// stop click event from firing
+				e.preventDefault();
 
-				// close any open containers
-				$( 'div[id^="descr-area-box-"]' ).slideUp();
+				// check to see if the clicked-on element is currently active
+				if ($(this).hasClass('active-grid')) {
 
-				// show container for selected element
-				$( 'div[id$=' + headerNumber + ']' ).appendTo(closestLi).slideDown();
+					// remove class
+					$(this).removeClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+
+				} else {
+
+					// set active class
+					$(this).addClass('active-grid');
+
+					// close any open containers
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
+
+					// get the current index of clicked item
+					$.each(headerArray, function(index, value) {
+						if ($(this).attr('id') == closestLi.attr('id')) {
+							listItemIndex = index;
+						}
+					});
+
+					if (listItemIndex % 3 < 0) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[2]).slideDown();
+					}
+
+				}
 			}
 		});
 	</script>

@@ -1952,6 +1952,13 @@ ul#menu-resource-links > li > a:hover {
     list-style: none;
 }
 
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+    .header-box {
+        width: 50%;
+        height: 280px;
+    }
+}
+
 .header-box:hover .exc-text,
 .header-box:hover .event-box-text,
 .header-box:hover .exc-text-school {
@@ -5275,10 +5282,6 @@ next.page-numbers:hover {
         vertical-align: middle;
     }
 
-    .grid-description-content.places {
-        padding: 20px;
-    }
-
     .grid-thumbnail.places,
     .grid-map.places {
         width: 50%;
@@ -5300,6 +5303,10 @@ next.page-numbers:hover {
         border-right: 1px solid #ebedee;
         float: left;
         width: 50%;
+    }
+
+    .grid-description-content.places {
+        padding: 40px;
     }
 
     .tablet-grid {

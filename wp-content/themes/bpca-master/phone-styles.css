@@ -185,8 +185,8 @@ and open the template in the editor.
         }
         
         .header-box {
-            width: 300px;
-            height: 280px;
+            width: 100%;
+            height: auto;
         }
         
         .exc-text,
@@ -213,8 +213,8 @@ and open the template in the editor.
         
         .descr-pic-box,
         .descr-map-box {
-            width: 300px;
-            height: 280px;
+            width: 100%;
+            height: auto;
             overflow: hidden;
         }
         
@@ -226,11 +226,11 @@ and open the template in the editor.
         
         .bio-text-box-container, 
         .descr-text-box-container {
-            width: 300px;
+            width: 100%;
         }
         
         .descr-text {
-            width: 75%;  
+            width: 100%;
         }
         
         .descr-text-blue-links-box {

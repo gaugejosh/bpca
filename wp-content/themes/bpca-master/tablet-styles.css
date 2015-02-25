@@ -272,11 +272,6 @@ and open the template in the editor.
             width: 640px;
         }
         
-        .header-box {
-            width: 100%;
-            height: 280px;
-        }
-        
         .exc-text,
         .exc-text-yellow {
             margin-top: -6px;
@@ -310,8 +305,8 @@ and open the template in the editor.
         
         .descr-pic-box,
         .descr-map-box {
-            width: 320px;
-            height: 280px;
+            width: 100%;
+            height: auto;
             overflow: hidden;
         }
         
