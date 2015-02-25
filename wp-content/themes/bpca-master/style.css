@@ -5087,6 +5087,10 @@ next.page-numbers:hover {
 
 .grid-alt .left-col { margin-right: 5%; }
 
+@media screen and (max-width: 479px) {
+    .grid-alt .left-col { margin-right: 0; }
+}
+
 .grid-alt .left-col ul {
     list-style:    none;
     margin-bottom: 24px;
@@ -5128,6 +5132,12 @@ next.page-numbers:hover {
 .grid-description-content.places {
     padding: 40px;
     overflow: auto;
+}
+
+@media screen and (max-width: 479px) {
+    .grid-description-content.places {
+        padding: 20px;
+    }
 }
 
 .grid-description-images ul {
