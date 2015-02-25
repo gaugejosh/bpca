@@ -200,6 +200,7 @@ and open the template in the editor.
         
         .event-box-text {
             margin-top: 24px;
+            margin-bottom: 0;
         }
         
         .exc-text-school {

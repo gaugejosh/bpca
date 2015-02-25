@@ -609,12 +609,37 @@ function build_descr_box($descrdetail, $rownum)
 	</script>
 
 	<script>
-		$('.event-box-text').on('click', function() {
-			// get specific id number
-			var $headerId = $(this).closest('li').attr('id').match(/\d+/),
-				headerNumber = $headerId[0],
-				$contentDiv = $( "div[id$=headerNumber")
 
+	$(window).resize(function() {
+//		console.log($(window).width());
+	});
+
+		$('.event-box-text').on('click', function(e) {
+
+			// get specific id number
+			var closestLi = $(this).closest('li');
+			var headerId = closestLi.attr('id').match(/\d+/),
+				headerNumber = headerId[0];
+
+			// stop click event from firing
+			e.preventDefault();
+
+			if ($(this).hasClass('active-grid')) {
+				// remove class
+				$(this).removeClass('active-grid');
+
+				// close any open containers
+				$( 'div[id^="descr-area-box-"]' ).slideUp();
+			} else {
+				// set active class
+				$(this).addClass('active-grid');
+
+				// close any open containers
+				$( 'div[id^="descr-area-box-"]' ).slideUp();
+
+				// show container for selected element
+				$( 'div[id$=' + headerNumber + ']' ).appendTo(closestLi).slideDown();
+			}
 		});
 	</script>
 <?php get_footer(); ?>

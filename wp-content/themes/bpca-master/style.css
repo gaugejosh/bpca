@@ -2071,9 +2071,10 @@ ul#menu-resource-links > li > a:hover {
 }
 
 [id*="bio-area-box"], [id*="descr-area-box"] {
-    width: 1200px;
-    height: auto;
     display: none;
+    height: auto;
+    position: relative;
+    width: 100%;
 }
 
 .bio-pic-box {
@@ -5144,6 +5145,17 @@ next.page-numbers:hover {
 .grid-info-list h2 {
     font-family: 'Proxima Nova - Bold';
     font-size:   24px;
+}
+
+@media screen and (max-width: 1023px) {
+    .grid-info-list h2 {
+        font-size:   22px;
+        line-height: 1.25;
+    }
+
+    ul.grid-info-list li:nth-child(2) {
+        font-size: 14px;
+    }
 }
 
 .grid-map {
