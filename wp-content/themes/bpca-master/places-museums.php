@@ -146,7 +146,7 @@ get_header(); ?>
 															<i class="fa fa-map-marker"></i>
 														</div>
 
-														<div class="share-text">Get Personalized Directions</div>
+														<div><span>Get Personalized Directions</span></div>
 
 														<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
 															<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
@@ -302,7 +302,7 @@ get_header(); ?>
 															<i class="fa fa-map-marker"></i>
 														</div>
 
-														<div class="share-text">Get Personalized Directions</div>
+														<div><span>Get Personalized Directions</span></div>
 
 														<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
 															<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
@@ -464,7 +464,7 @@ get_header(); ?>
 															<i class="fa fa-map-marker"></i>
 														</div>
 
-														<div class="share-text">Get Personalized Directions</div>
+														<div><span>Get Personalized Directions</span></div>
 
 														<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
 															<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />

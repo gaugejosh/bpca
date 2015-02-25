@@ -11,12 +11,11 @@ get_header(); ?>
 	<main id="main" class="site-main" role="main">
 		<div class="breadcrumbs">
 			<?php if (function_exists('bcn_display') && ! is_home())
-			{
-				bcn_display();
-			}
+				{
+					bcn_display();
+				}
 			?>
-		</div>
-		<!-- .breadcrumbs -->
+		</div><!-- .breadcrumbs -->
 
 		<div class="about-leaders">
 			<ul class="grids">
@@ -32,8 +31,7 @@ get_header(); ?>
 					<?php get_template_part('grid-desktop') ?>
 				</div>
 			</ul>
-		</div>
-		<!-- .about-grids -->
+		</div><!-- .about-grids -->
 	</main>
 </div><!-- #primary -->
 

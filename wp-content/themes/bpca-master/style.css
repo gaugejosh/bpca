@@ -590,6 +590,13 @@ a:hover {
         color: #197bc2;
 }
 
+.cf:before,
+.cf:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
@@ -2257,6 +2264,7 @@ ul#menu-resource-links > li > a:hover {
 .descr-text {
     width: 63%;
     float: left;
+    margin-right: 6%;
 }
 
 .descr-text.parks {
@@ -2279,12 +2287,23 @@ ul#menu-resource-links > li > a:hover {
 
 .links-text {
     width: 80%;
-    margin: 20px -20px;
+    /*margin: 20px -20px;*/
 }
 
 .links-text.alt {
     width: 100%;
-    margin-left: 57px;
+    /*margin-left: 25px;*/
+}
+
+.links-text.alt ul {
+    list-style: none;
+}
+
+.links-text.alt:before,
+.links-text.alt:after {
+    clear: both;
+    content: '';
+    display: table;
 }
 
 .page-descr-text {
@@ -2353,6 +2372,8 @@ ul#menu-resource-links > li > a:hover {
     max-height: 350px;
 }
 
+.descr-map-box ul { list-style: none; }
+
 /** Bottom Links In Descriptions **/
 .link-area-subtext {
     clear: both;
@@ -2363,21 +2384,27 @@ ul#menu-resource-links > li > a:hover {
 .link-dir-area,
 .link-dir-area-white,
 .link-dir-area-black {
-    float: right;
-    height: 100%;
+    /*float: right;*/
+    /*height: 100%;*/
     font-family: 'Proxima Nova';
     color: #000;
-    margin-bottom: 50px;
-    padding-right: 60px;
+    margin: 25px 0 50px;
+    /*padding-right: 60px;*/
     line-height: 35px;
-    width: 400px;
+    /*width: 400px;*/
 }
 
 .link-dir-area-white.short,
 .link-dir-area-black.short {
-    margin-right: -98px;
+    /*margin-right: -98px;*/
     margin-bottom: 0px;
     padding-left: 0px;
+    padding-right: 0;
+}
+
+.link-dir-area-white.short,
+.link-dir-area-black.short ul {
+    list-style: none;
 }
 
 .link-dir-area-black {
@@ -2513,23 +2540,23 @@ ul#menu-resource-links > li > a:hover {
 }
 
 #gdirects {
-    margin-left: 37px;
-    margin-top: -10px;
+    margin-left: 10px;
+    /*margin-top: -10px;*/
 }
 
 #gdirects-white {
-    margin-left: 16px;
-    margin-top: -10px;
+    margin-left: 10px;
+    /*margin-top: -10px;*/
 }
 
 #gdirects-black {
-    margin-left: 40px;
-    margin-top: -10px;
+    margin-left: 10px;
+    /*margin-top: -10px;*/
 }
 
 #gdirects-parks {
-    margin-left: 35px;
-    margin-top: -10px;
+    margin-left: 10px;
+    /*margin-top: -10px;*/
 }
 
 .direction-button {
@@ -3515,10 +3542,10 @@ div[id^="tab-container"]:after {
 
 .descr-text-blue-links-box {
     font-family: "Proxima Nova";
-    float: right;
-    width: 360px;
-    margin-right: 80px;
-    margin-top: -20px;
+    float: left;
+    width: 332px;
+    /*margin-right: 80px;*/
+    /*margin-top: -20px;*/
     /*
     float: right;
     height: 100%;
@@ -3529,6 +3556,10 @@ div[id^="tab-container"]:after {
     width: 360px;
     margin-top: -133px;
     */
+}
+
+.descr-text-blue-links-box ul {
+    list-style: none;
 }
 
 .descr-text-blue-links-box.schools {
@@ -4432,11 +4463,17 @@ board-commit-head {
 }
 
 .social-icon {
-    clear: both;
     float: left;
     width: 30px;
     height: 30px;
     text-align: center;
+}
+
+.social-icon:before,
+.social-icon:after {
+    clear: both;
+    content: '';
+    display: table;
 }
 
 #white-links a {
@@ -5050,6 +5087,13 @@ next.page-numbers:hover {
 /****************************************************************************************/
 
 /* STANDARD CLASSES */
+.desktop-grid:before,
+.desktop-grid:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
 .grids { background-color: #fff; }
 
 .grids img {
@@ -5125,9 +5169,20 @@ next.page-numbers:hover {
 
 .grid-aside-content { overflow: auto; }
 
+.grid-aside-content input[type=submit] {
+    margin-top: 5px;
+}
+
 .grid-aside-content ul {
     list-style: none;
     margin-top: 35px;
+}
+
+.grid-aside-content li:before,
+.grid-aside-content li:after {
+    clear: both;
+    content: '';
+    display: table;
 }
 
 .grid-button {
@@ -5180,7 +5235,8 @@ next.page-numbers:hover {
     background-color: #fff;
     height:           100%;
     left:             0;
-    padding:          35px 35px 55%;
+    padding:          35px;
+    position:         absolute;
     top:              0;
     width:            100%;
 }
@@ -5315,8 +5371,8 @@ next.page-numbers:hover {
 .mobile-grid, .tablet-grid { display: none; }
 
 @media screen and (max-width: 1023px) {
-    .grid { clear: both; }
-    
+    /*.grid { clear: both; }*/
+
     .desktop-grid {
         display: none;
     }
