@@ -3450,6 +3450,12 @@ div[id^="tab-container"]:after {
     padding: 0px;
 }
 
+@media screen and (max-width: 479px) {
+    .descr-text-box-container.events-page {
+        padding: 20px;
+    }
+}
+
 .descr-text-box-container.places {
     font-family: 'Proxima Nova - Light' !important;
     background: #FCD036;
@@ -3463,12 +3469,29 @@ div[id^="tab-container"]:after {
     margin-bottom: 40px;
 }
 
+@media screen and (max-width: 479px) {
+    .descr-text-3-box.places {
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+}
+
 .descr-text-3-box.events-page,
 .descr-text-4-box.events-page {
     color: #fff;
     margin-top: 35px;
     margin-left: 40px;
     margin-bottom: 40px;
+}
+
+@media screen and (max-width: 479px) {
+    .descr-text-3-box.events-page,
+    .descr-text-4-box.events-page {
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
 }
 
 .descr-text-4-box.places {
@@ -5157,8 +5180,7 @@ next.page-numbers:hover {
     background-color: #fff;
     height:           100%;
     left:             0;
-    padding:          35px;
-    position:         absolute;
+    padding:          35px 35px 55%;
     top:              0;
     width:            100%;
 }
@@ -5293,7 +5315,8 @@ next.page-numbers:hover {
 .mobile-grid, .tablet-grid { display: none; }
 
 @media screen and (max-width: 1023px) {
-
+    .grid { clear: both; }
+    
     .desktop-grid {
         display: none;
     }
