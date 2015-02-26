@@ -498,10 +498,10 @@ get_header(); ?>
 					<?php if (($i - 1) % 3 === 1): ?>
 						<li class="grid"></li>
 						<li class="grid"></li>
-						<li class="grid-alt"></li>
+						<li class="grid-alt places"></li>
 					<?php elseif (($i - 1) % 3 === 2): ?>
 						<li class="grid"></li>
-						<li class="grid-alt"></li>
+						<li class="grid-alt places"></li>
 					<?php endif; ?>
 				</div>
 			</ul>

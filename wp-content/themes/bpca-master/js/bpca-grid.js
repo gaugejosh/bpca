@@ -16,6 +16,7 @@ $(document).ready(function () {
         // copy description and append it to container
         var $content = $(this).find('.grid-description').html();
 
+        // if a user clicks on the same active .grid element
         if ($(this).hasClass('active')) {
 
             // remove any active classes
@@ -24,6 +25,7 @@ $(document).ready(function () {
             // hide any open descriptions
             $('.grid-alt').slideUp('slow');
 
+        // if this is the initial click
         } else if (!$grid.hasClass('active')) {
 
             // add the active class to the current element
@@ -31,7 +33,10 @@ $(document).ready(function () {
 
             // add content to section
             $target.html($content).slideDown('slow');
+
+        // if the users clicks a second, different .grid element
         } else {
+
             // remove any active classes
             $grid.removeClass('active');
 
@@ -39,8 +44,7 @@ $(document).ready(function () {
             $('.grid-alt').slideUp('slow').promise().done(function() {
 
                 // show new content
-                $target.html($content);
-                $target.slideDown('slow');
+                $target.html($content).slideDown('slow');
 
             });
 
