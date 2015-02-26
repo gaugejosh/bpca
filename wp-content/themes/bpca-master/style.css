@@ -5377,12 +5377,6 @@ next.page-numbers:hover {
         display: none;
     }
 
-    .grids img {
-        height: auto;
-        max-width: 100%;
-        vertical-align: middle;
-    }
-
     .grid-thumbnail.places,
     .grid-map.places {
         width: 50%;
@@ -5418,7 +5412,7 @@ next.page-numbers:hover {
 @media screen and (max-width: 414px) {
     .grid {
         border-right: none;
-        float: none;
+        /*float: none;*/
         width: 100%;
     }
 
