@@ -20,7 +20,7 @@ get_header(); ?>
 
 			<div class="about-leaders">
 				<ul class="grids">
-					<div class="mobile-grid">
+					<div class="mobile-grid cf">
 						<?php
 						// create loop array
 						$args = [
@@ -50,11 +50,10 @@ get_header(); ?>
 							<li class="grid places">
 								<div class="grid-content">
 									<div class="grid-info">
-										<ul class="grid-info-list">
-											<li><h2><?php the_title() ?></h2></li>
-											<li><?php the_field('places_box_address') ?></li>
-											<li><?php the_field('confirmed_on') ?></li>
-										</ul>
+										<div class="get-around-icon">
+											<h2><?php the_title() ?></h2>
+											<img src="<?php the_field('place_icon_image'); ?>" alt=""/>
+										</div>
 									</div>
 									<!-- .grid-info -->
 
@@ -176,7 +175,7 @@ get_header(); ?>
 						<?php wp_reset_query() ?>
 					</div>
 
-					<div class="tablet-grid">
+					<div class="tablet-grid cf">
 						<?php
 						// create loop array
 						$args = [
@@ -206,11 +205,10 @@ get_header(); ?>
 							<li class="grid places">
 								<div class="grid-content">
 									<div class="grid-info">
-										<ul class="grid-info-list">
-											<li><h2><?php the_title() ?></h2></li>
-											<li><?php the_field('places_box_address') ?></li>
-											<li><?php the_field('confirmed_on') ?></li>
-										</ul>
+										<div class="get-around-icon">
+											<h2><?php the_title() ?></h2>
+											<img src="<?php the_field('place_icon_image'); ?>" alt=""/>
+										</div>
 									</div>
 									<!-- .grid-info -->
 
@@ -338,7 +336,7 @@ get_header(); ?>
 						<?php endif; ?>
 					</div>
 
-					<div class="desktop-grid">
+					<div class="desktop-grid cf">
 						<?php
 						// create loop array
 						$args = [
@@ -368,11 +366,10 @@ get_header(); ?>
 							<li class="grid places">
 								<div class="grid-content">
 									<div class="grid-info">
-										<ul class="grid-info-list">
-											<li><h2><?php the_title() ?></h2></li>
-											<li><?php the_field('places_box_address') ?></li>
-											<li><?php the_field('confirmed_on') ?></li>
-										</ul>
+										<div class="get-around-icon">
+											<h2><?php the_title() ?></h2>
+											<img src="<?php the_field('place_icon_image'); ?>" alt=""/>
+										</div>
 									</div>
 									<!-- .grid-info -->
 

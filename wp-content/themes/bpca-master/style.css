@@ -5094,6 +5094,24 @@ next.page-numbers:hover {
     display: table;
 }
 
+.get-around-icon {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.get-around-icon h2 {
+    font-family: 'Proxima Nova - Bold';
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .grids { background-color: #fff; }
 
 .grids img {
