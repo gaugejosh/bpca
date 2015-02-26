@@ -320,7 +320,7 @@ get_header(); ?>
 						</li>
 
 						<?php // insert the description container in the correct place ?>
-						<?php if ($i % 2 === 0): ?>
+						<?php if (($i - 1) % 2 === 1): ?>
 							<li class="grid-alt places">
 							</li>
 						<?php endif; ?>

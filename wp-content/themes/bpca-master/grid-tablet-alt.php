@@ -49,12 +49,11 @@ while ($loop->have_posts()) : $loop->the_post();
 		<div class="grid-description">
 			<div class="grid-description-images">
 				<ul>
-					<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+					<?php $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
 					<li class="grid-thumbnail places"><img src="<?php echo $url ?>"></li>
 					<li class="grid-map places">
 						<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('places_address')) ?>">
-							<img src="<?php the_field('place_gmap') ?>">
-						</a>
+							<img src="<?php the_field('place_gmap') ?>"> </a>
 					</li>
 				</ul>
 			</div>
@@ -118,9 +117,9 @@ while ($loop->have_posts()) : $loop->the_post();
 									<div class="share-text">Get Personalized Directions</div>
 
 									<form id="gdirects-black" action="http://maps.google.com/maps" method="get" target="_blank">
-										<input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
-										<input type="hidden" name="daddr" value="<?php the_field('places_address') ?>" />
-										<input type="submit" value="GO" />
+										<input type="text" name="saddr" placeholder="ENTER START ADDRESS"/>
+										<input type="hidden" name="daddr" value="<?php the_field('places_address') ?>"/>
+										<input type="submit" value="GO"/>
 									</form>
 								</div>
 							</li>
@@ -134,7 +133,7 @@ while ($loop->have_posts()) : $loop->the_post();
 	</li>
 
 	<?php // insert the description container in the correct place ?>
-	<?php if ($i % 2 === 0): ?>
+	<?php if (($i - 1) % 2 === 1): ?>
 		<li class="grid-alt places">
 		</li>
 	<?php endif; ?>
