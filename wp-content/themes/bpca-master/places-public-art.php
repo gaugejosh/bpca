@@ -58,7 +58,9 @@ get_header(); ?>
 									</ul>
 								</div>
 								<!-- .grid-info -->
-
+								<div class="grid-image">
+									<img src="<?php bloginfo('url') ?>/wp-content/themes/bpca-master/images/filler-image.jpg" width="400" height="350" />
+								</div>
 
 								<!-- .grid-image -->
 
@@ -212,7 +214,9 @@ get_header(); ?>
 									</ul>
 								</div>
 								<!-- .grid-info -->
-
+								<div class="grid-image">
+									<img src="<?php bloginfo('url') ?>/wp-content/themes/bpca-master/images/filler-image.jpg" width="400" height="350" />
+								</div>
 
 								<!-- .grid-image -->
 
@@ -372,7 +376,9 @@ get_header(); ?>
 									</ul>
 								</div>
 								<!-- .grid-info -->
-
+								<div class="grid-image">
+									<img src="<?php bloginfo('url') ?>/wp-content/themes/bpca-master/images/filler-image.jpg" width="400" height="350" />
+								</div>
 
 								<!-- .grid-image -->
 
