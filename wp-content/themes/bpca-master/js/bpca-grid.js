@@ -24,21 +24,29 @@ $(document).ready(function () {
             // hide any open descriptions
             $('.grid-alt').slideUp('slow');
 
-        } else {
-
-            // remove any active classes
-            $grid.removeClass('active');
-
-            // hide any open descriptions
-            //$('.grid-alt').slideUp('slow', function() {
-                $target.html($content);
-            //});
+        } else if (!$grid.hasClass('active')) {
 
             // add the active class to the current element
             $(this).addClass('active');
 
-            // show current element description
-            $target.slideDown('slow');
+            // add content to section
+            $target.html($content).slideDown('slow');
+        } else {
+            // remove any active classes
+            $grid.removeClass('active');
+
+            // hide any open descriptions
+            $('.grid-alt').slideUp('slow').promise().done(function() {
+
+                // show new content
+                $target.html($content);
+                $target.slideDown('slow');
+
+            });
+
+            // add the active class to the current element
+            $(this).addClass('active');
+
         }
     });
 
