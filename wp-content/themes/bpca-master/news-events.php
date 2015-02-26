@@ -463,49 +463,31 @@ function build_descr_box($descrdetail, $rownum)
 		echo '          </div>';
 		echo '      <div class="descr-text-blue-links-box" id="resident">';
 		echo '          <div class="links-text alt" id="white-links">';
-		echo '<ul>';
-		echo '<li>';
-		echo '<a class="cf" href="mailto:?subject=' . $descrtext['event-title'] . '&amp;body=' . $descrtext['event-title'] . '%20-%20' . $descrtext['email'] . '">';
-		echo '<div class="social-icon"><i class="fa fa-envelope-o"></i></div><div class="share-text-white">Forward to Friends</div></a>';
-		echo '</li>';
-		echo '<li>';
-		echo '<a class="cf" href="' . $descrtext['gcal'] . '" target="_blank">';
+		echo '<a href="mailto:?subject=' . $descrtext['event-title'] . '&amp;body=' . $descrtext['event-title'] . '%20-%20' . $descrtext['email'] . '">';
+		echo '<div class="social-icon"><i class="fa fa-envelope-o"></i></div><div class="share-text-white">Forward to Friends</div></a><br />';
+		echo '<a href="' . $descrtext['gcal'] . '" target="_blank">';
 		echo '<div class="social-icon"><i class="fa fa-google"></i></div><div class="share-text-white">Add to Google Calendar</div>';
-		echo '</a>';
-		echo '</li>';
-		echo '<li>';
-		echo '<a class="cf" href="' . $descrtext['ical'] . '" target="_blank">';
+		echo '</a><br />';
+		echo '<a href="' . $descrtext['ical'] . '" target="_blank">';
 		echo '<div class="social-icon"><i class="fa fa-calendar"></i></div><div class="share-text-white">Add to iCal</div>';
-		echo '</a>';
-		echo '</li>';
-		echo '<li>';
-		echo '<a class="cf" href="#" onclick="javascript:window.print();">';
+		echo '</a><br />';
+		echo '<a href="#" onclick="javascript:window.print();">';
 		echo '<div class="social-icon"><i class="fa fa-print"></i></div><div class="share-text-white">Print</div>';
-		echo '</a>';
-		echo '</li>';
-		echo '<li>';
-		echo '<a class="cf" href="http://twitter.com/share?text=' . $descrtext['event-title'] . '&url=' . $descrtext['email'] . '">';
+		echo '</a><br />';
+		echo '<a href="http://twitter.com/share?text=' . $descrtext['event-title'] . '&url=' . $descrtext['email'] . '">';
 		echo '<div class="social-icon"><i class="fa fa-twitter"></i></div><div class="share-text-white">Share on Twitter</div>';
-		echo '</a>';
-		echo '</li>';
-		echo '<li>';
-		echo '<a class="cf" href="https://www.facebook.com/sharer/sharer.php?u=' . $descrtext['email'] . '">';
+		echo '</a><br />';
+		echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $descrtext['email'] . '">';
 		echo '<div class="social-icon"><i class="fa fa-facebook"></i></div><div class="share-text-white">Share on Facebook</div>';
 		echo '</a>';
-		echo '</li>';
-		echo '</ul>';
 		echo '          </div>';
-		echo '<ul>';
-		echo '<li>';
-		echo '<div class="link-dir-area-white short">';
-		echo '<div class="social-icon"><i class="fa fa-map-marker"></i></div><div class="share-text-white">Get Personalized Directions</div>';
+		echo '      <div class="link-dir-area-white short">';
+		echo '      <div class="social-icon"><i class="fa fa-map-marker"></i></div><div class="share-text-white">Get Personalized Directions</div><br />';
 		echo '<form id="gdirects-white" action="http://maps.google.com/maps" method="get" target="_blank">
                 <input type="text" name="saddr" placeholder="ENTER START ADDRESS" />
                 <input type="hidden" name="daddr" value="' . $descrtext['address'] . '" />
                 <input type="submit" value="GO" />
              </form>';
-		echo '</li>';
-		echo '</ul>';
 		echo '      </div>';
 		echo '      </div>';
 		echo '      </div>';
@@ -643,13 +625,6 @@ if ($curday != "")
 	// get an array of list elements
 	var headerArray = $('.header-box');
 
-	// add any additional li elements
-	if (Math.floor(headerArray.length / 3) == 1) {
-		$('#box-row-1').append('<li class="header-box"></li><li class="header-box"></li>');
-	} else if (Math.floor(headerArray.length / 3) == 2) {
-		$('#box-row-1').append('<li class="header-box"></li>');
-	}
-
 		$('.event-box-text').on('click', function(e) {
 
 			// get specific id number
@@ -742,26 +717,31 @@ if ($curday != "")
 					$(this).addClass('active-grid');
 
 					// close any open containers
-					$( 'div[id^="descr-area-box-"]' ).hide();
+					$( 'div[id^="descr-area-box-"]' ).slideUp();
 
 					// get the current index of clicked item
 					$.each(headerArray, function(index, value) {
 						if ($(this).attr('id') == closestLi.attr('id')) {
 							listItemIndex = index;
+							console.log(listItemIndex);
 						}
 					});
 
 					// please don't judge me on this
-					if (listItemIndex / 3 < 1) {
-						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[2]).slideDown();
-					} else if (listItemIndex / 3 < 2) {
-						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[5]).slideDown();
-					} else if (listItemIndex / 3 < 3) {
-						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[8]).slideDown();
-					} else if (listItemIndex / 3 < 4) {
-						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[12]).slideDown();
-					}
+//					if (listItemIndex / 3 < 1) {
+//						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[2]).slideDown();
+//					} else if (listItemIndex / 3 < 2) {
+//						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[5]).slideDown();
+//					} else if (listItemIndex / 3 < 3) {
+//						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[8]).slideDown();
+//					} else if (listItemIndex / 3 < 4) {
+//						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[12]).slideDown();
+//					}
 
+//					please don't judge me on this
+					if ((listItemIndex + 1) % 3 === 0) {
+						$( 'div[id$=' + headerNumber + ']' ).insertAfter(headerArray[2]).slideDown();
+					}
 				}
 			}
 		});

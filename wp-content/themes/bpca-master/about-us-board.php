@@ -332,7 +332,7 @@ get_header();
                 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Board Committees') ) : ?>  
 <?php endif; ?>
         </div>
-        <div class="teaser-area">
+        <div class="teaser-area cf">
             <?php
             if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Teasers Set 1') ) : 
                     endif;
