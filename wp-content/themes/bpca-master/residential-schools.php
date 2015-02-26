@@ -68,7 +68,7 @@ get_header(); ?>
 							<div class="grid-description">
 								<div class="grid-description-images">
 									<ul>
-										<li><?php the_post_thumbnail() ?></li>
+										<li class="grid-thumbnail places"><img src="<?php the_field('resident_mobile_img') ?>"></li>
 										<li class="grid-map places">
 											<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('resident_map_address')) ?>">
 												<img src="<?php the_field('resident_gmaps') ?>">
@@ -210,7 +210,7 @@ get_header(); ?>
 							<div class="grid-description">
 								<div class="grid-description-images">
 									<ul>
-										<li><?php the_post_thumbnail() ?></li>
+										<li class="grid-thumbnail places"><img src="<?php the_field('resident_mobile_img') ?>"></li>
 										<li class="grid-map places">
 											<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('resident_map_address')) ?>">
 												<img src="<?php the_field('resident_gmaps') ?>">
@@ -358,7 +358,7 @@ get_header(); ?>
 							<div class="grid-description">
 								<div class="grid-description-images">
 									<ul>
-										<li><?php the_post_thumbnail() ?></li>
+										<li class="grid-thumbnail places"><?php the_post_thumbnail() ?></li>
 										<li class="grid-map places">
 											<a href="http://maps.google.com/maps/?daddr=<?php str_replace(" ", "+", the_field('resident_map_address')) ?>">
 												<img src="<?php the_field('resident_gmaps') ?>">
